@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de diseño — Rojo vibrante / Morado profundo</title>
+<meta name="description" content="Referencia visual del sistema de diseño: colores, tipografía, espaciado, formas, elevación y componentes.">
+<link rel="stylesheet" href="https://use.typekit.net/guo6nyk.css">
+<style>
+/* ===== TOKENS FIELES A DESIGN.md ===== */
+:root{
+  --color-primary:#FF1E17;
+  --color-primary-intense:#BF0F0C;
+  --color-primary-deep:#7F0000;
+  --color-secondary-bright:#DC8EFF;
+  --color-secondary:#9D50BE;
+  --color-secondary-deep:#5D117D;
+  --color-neutral:#FFFFFF;
+  --color-surface:#FFFFFF;
+  --color-on-surface:#5D117D;
+  --color-error:#7F0000;
+
+  --font-display:"Kepler Std","Kepler",Georgia,serif;
+  --font-body:"Neulis Neue","Neulis","Avenir Next",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --radius-sm:8px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --radius-xl:32px;
+  --radius-full:9999px;
+
+  --space-base:8px;
+  --space-xs:8px;
+  --space-sm:16px;
+  --space-md:24px;
+  --space-lg:32px;
+  --space-xl:48px;
+  --space-2xl:64px;
+  --space-3xl:96px;
+
+  --shadow-subtle:0 2px 6px rgba(93,17,125,.12);
+  --shadow-medium:0 6px 16px rgba(93,17,125,.16);
+  --shadow-high:0 10px 28px rgba(127,0,0,.20);
+  --overlay:rgba(40,0,40,.45);
+
+  --max-width:1440px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-size:18px;
+  line-height:1.45;
+  color:var(--color-on-surface);
+  background:var(--color-neutral);
+}
+.skip-link{
+  position:absolute;left:-9999px;top:0;
+  background:var(--color-secondary-deep);color:#fff;
+  padding:12px 16px;border-radius:0 0 var(--radius-md) 0;z-index:100;
+}
+.skip-link:focus{left:0}
+a{color:var(--color-secondary-deep)}
+a:hover{color:var(--color-primary);text-decoration:underline}
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid var(--color-secondary-deep);
+  outline-offset:3px;
+  border-radius:4px;
+}
+.wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-sm)}
+@media(min-width:600px){.wrap{padding:0 var(--space-lg)}}
+@media(min-width:1024px){.wrap{padding:0 var(--space-xl)}}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:var(--color-neutral);
+  border-bottom:2px solid var(--color-secondary-bright);
+}
+.header-inner{display:flex;align-items:center;gap:var(--space-sm);padding:12px 0;flex-wrap:wrap}
+.brand-mark{
+  width:40px;height:40px;border-radius:var(--radius-md);
+  background:var(--color-primary);color:#fff;
+  display:grid;place-items:center;
+  font-family:var(--font-display);font-weight:900;font-size:24px;flex:none;
+}
+.brand-name{font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--color-secondary-deep);margin:0}
+.brand-sub{font-size:14px;margin:0;color:var(--color-secondary)}
+nav.main-nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+nav.main-nav a{
+  font-size:16px;font-weight:500;text-decoration:none;
+  padding:10px 12px;border-radius:var(--radius-md);
+  min-height:44px;display:inline-flex;align-items:center;
+}
+nav.main-nav a:hover{background:var(--color-secondary-bright);color:var(--color-secondary-deep)}
+
+/* Hero */
+.hero{
+  background:var(--color-secondary-deep);
+  color:var(--color-neutral);
+  padding:var(--space-2xl) 0;
+  position:relative;overflow:hidden;
+}
+.hero h1{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(40px,6vw,48px);line-height:1.1;margin:0 0 12px;
+}
+.hero h1 em{font-style:italic;font-weight:700;color:var(--color-secondary-bright)}
+.hero p{max-width:62ch;font-size:20px;line-height:1.5;margin:0 0 20px}
+.hero .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.pill{
+  background:var(--color-secondary-bright);color:var(--color-secondary-deep);
+  border-radius:var(--radius-full);padding:8px 16px;font-size:16px;font-weight:500;
+}
+.pill.dark{background:var(--color-primary);color:#fff}
+.blob{
+  position:absolute;right:-80px;top:-60px;width:340px;height:340px;
+  background:var(--color-secondary-bright);opacity:.28;
+  border-radius:48% 52% 60% 40% / 50% 45% 55% 50%;
+  pointer-events:none;
+}
+.blob.b2{right:auto;left:-100px;top:auto;bottom:-120px;width:280px;height:280px;background:var(--color-primary);opacity:.22}
+
+/* Sections */
+main section{padding:var(--space-2xl) 0;border-bottom:1px solid #f0d9ff;scroll-margin-top:90px}
+.section-kicker{
+  display:inline-block;font-size:14px;font-weight:500;letter-spacing:.04em;
+  background:var(--color-secondary-bright);color:var(--color-secondary-deep);
+  padding:6px 14px;border-radius:var(--radius-full);margin-bottom:12px;
+}
+h2.section-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(28px,4vw,38px);line-height:1.15;
+  color:var(--color-secondary-deep);margin:0 0 8px;
+}
+.section-desc{max-width:72ch;margin:0 0 24px;font-size:18px}
+.grid{display:grid;gap:var(--space-md)}
+@media(min-width:600px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-4{grid-template-columns:repeat(4,1fr)}.grid.cols-12{display:grid;grid-template-columns:repeat(12,1fr)}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-8{grid-column:span 8}}
+
+/* Colors */
+.swatch{
+  border-radius:var(--radius-lg);overflow:hidden;
+  border:1px solid rgba(93,17,125,.15);background:#fff;
+}
+.swatch-color{height:110px;display:flex;align-items:flex-end;padding:10px}
+.swatch-body{padding:14px 16px}
+.swatch-body h3{margin:0 0 4px;font-size:18px;font-weight:500;color:var(--color-secondary-deep)}
+.swatch-body p{margin:0 0 10px;font-size:15px;line-height:1.45}
+.swatch code{font-size:13px;background:#f7efff;padding:2px 8px;border-radius:9999px;display:inline-block}
+.copy-btn{
+  margin-top:10px;font:inherit;font-size:15px;font-weight:500;
+  border:2px solid var(--color-secondary-deep);background:#fff;color:var(--color-secondary-deep);
+  border-radius:var(--radius-md);padding:10px 14px;min-height:44px;cursor:pointer;
+}
+.copy-btn:hover{background:var(--color-secondary-deep);color:#fff}
+
+/* Type */
+.type-card{
+  border:1px solid rgba(93,17,125,.15);border-radius:var(--radius-lg);
+  padding:20px;background:#fff;
+}
+.type-card small{display:block;font-size:14px;color:var(--color-secondary);margin-bottom:8px}
+.type-display{font-family:var(--font-display);font-size:48px;font-weight:900;line-height:1.1;color:var(--color-secondary-deep)}
+.type-h1{font-family:var(--font-display);font-size:38px;font-weight:700;line-height:1.15;color:var(--color-secondary-deep)}
+.type-h2{font-family:var(--font-display);font-size:30px;font-weight:600;line-height:1.2}
+.type-h3{font-family:var(--font-body);font-size:22px;font-weight:500;line-height:1.3}
+.type-body-lg{font-size:20px;line-height:1.5}
+.type-body-md{font-size:18px;line-height:1.45}
+.type-label{font-size:16px;font-weight:500}
+.type-caption{font-size:14px}
+.type-italic{font-family:var(--font-display);font-style:italic}
+
+/* Spacing / radii */
+.bar-row{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.bar{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:14px}
+.bar i{display:block;background:var(--color-secondary);border-radius:4px 4px 0 0}
+.radius-demo{
+  background:var(--color-secondary-bright);border:2px solid var(--color-secondary-deep);
+  height:96px;display:flex;align-items:center;justify-content:center;
+  font-weight:500;color:var(--color-secondary-deep);
+}
+.elev{border-radius:var(--radius-lg);background:#fff;border:1px solid rgba(93,17,125,.12);padding:20px}
+.elev.s1{box-shadow:none}.elev.s2{box-shadow:var(--shadow-subtle)}.elev.s3{box-shadow:var(--shadow-medium)}.elev.s4{box-shadow:var(--shadow-high)}
+
+/* Components */
+.btn{
+  font-family:var(--font-body);font-size:16px;font-weight:500;line-height:1.4;
+  border-radius:var(--radius-md);padding:16px 24px;min-height:44px;min-width:44px;
+  border:2px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:background .15s,transform .1s;
+}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--color-primary);color:#fff}
+.btn-primary:hover{background:var(--color-secondary-deep);color:#fff}
+.btn-primary:active{background:var(--color-primary-deep)}
+.btn-secondary{background:var(--color-secondary);color:#fff}
+.btn-secondary:hover{background:var(--color-primary-intense)}
+.btn-ghost{background:var(--color-surface);color:var(--color-secondary-deep);border-color:var(--color-secondary-deep)}
+.btn-ghost:hover{color:var(--color-primary);border-color:var(--color-primary);text-decoration:underline}
+.chip{
+  display:inline-flex;align-items:center;padding:8px 16px;min-height:44px;
+  border-radius:var(--radius-full);font-size:16px;font-weight:500;
+}
+.chip-default{background:var(--color-secondary-bright);color:var(--color-secondary-deep)}
+.chip-strong{background:var(--color-secondary);color:#fff}
+.badge{display:inline-block;padding:6px 12px;border-radius:var(--radius-full);font-size:14px}
+.badge-alert{background:var(--color-primary);color:#fff}
+.badge-secondary{background:var(--color-primary-intense);color:#fff}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:500;margin-bottom:6px;color:var(--color-secondary-deep)}
+.input{
+  width:100%;font:inherit;font-size:18px;color:var(--color-on-surface);
+  background:var(--color-neutral);border:2px solid #d9b8e8;border-radius:var(--radius-md);
+  padding:16px;min-height:44px;
+}
+.input:focus{outline:none;border-color:var(--color-secondary-deep);box-shadow:var(--shadow-subtle)}
+.input.emphasis:focus{border-color:var(--color-primary)}
+.input.error{border-color:var(--color-error);color:var(--color-error)}
+.link-demo{font-size:18px}
+.card-text{
+  background:var(--color-surface);color:var(--color-on-surface);
+  border-radius:var(--radius-xl);padding:24px;
+  border:1px solid rgba(93,17,125,.12);
+}
+.marco-stage{background:#faf0ff;border-radius:var(--radius-lg);padding:24px;text-align:center}
+.marco-stage img{max-width:100%;height:auto;display:block;margin:0 auto}
+.marco-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.marco-btns button{
+  border:2px solid var(--color-secondary-deep);background:#fff;color:var(--color-secondary-deep);
+  border-radius:var(--radius-full);padding:10px 14px;min-height:44px;font:inherit;font-size:15px;cursor:pointer;
+}
+.marco-btns button[aria-pressed="true"]{background:var(--color-secondary-deep);color:#fff}
+
+/* Cursor demo */
+.cursor-lab{
+  position:relative;background:var(--color-neutral);
+  border:2px dashed var(--color-secondary);border-radius:var(--radius-lg);
+  min-height:220px;overflow:hidden;padding:16px;
+}
+.cursor-star{
+  position:absolute;width:34px;height:34px;pointer-events:none;
+  transition:fill .1s;left:50%;top:50%;
+}
+.icon-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.icon{
+  width:48px;height:48px;border-radius:var(--radius-md);
+  display:grid;place-items:center;font-size:24px;font-weight:700;
+  background:var(--color-secondary-bright);color:var(--color-secondary-deep);
+}
+.icon.alt{background:var(--color-primary);color:#fff}
+
+/* Do / Don't */
+.do,.dont{border-radius:var(--radius-lg);padding:20px}
+.do{background:#f2e7ff;border:2px solid var(--color-secondary-deep)}
+.dont{background:#ffeae9;border:2px solid var(--color-primary-intense)}
+.do h3,.dont h3{margin-top:0}
+.do ul,.dont ul{margin:0;padding-left:20px}
+.do li,.dont li{margin-bottom:8px}
+
+/* Responsive demo */
+.bp-table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius-md);overflow:hidden}
+.bp-table th,.bp-table td{padding:12px;border:1px solid #ecd9f7;text-align:left;font-size:16px}
+.bp-table th{background:var(--color-secondary-deep);color:#fff}
+
+footer{padding:var(--space-xl) 0 var(--space-2xl);font-size:15px;color:var(--color-secondary)}
+code.inline{background:#f5e8ff;padding:2px 6px;border-radius:6px;font-size:.9em}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:var(--color-secondary-deep);color:#fff;
+  padding:12px 20px;border-radius:var(--radius-full);display:none;
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand-mark" aria-hidden="true">N</div>
+    <div>
+      <p class="brand-name">Sistema de diseño</p>
+      <p class="brand-sub">Rojo vibrante / Morado profundo — referencia visual</p>
+    </div>
+    <nav class="main-nav" aria-label="Secciones del sistema">
+      <a href="#colores">Colores</a>
+      <a href="#tipografia">Letras</a>
+      <a href="#espaciado">Espacios</a>
+      <a href="#formas">Formas</a>
+      <a href="#componentes">Piezas</a>
+      <a href="#reglas">Reglas</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Acento audaz <em>sin abrumar.</em></h1>
+    <p>Energía, seguridad y creatividad con alto contraste. Rojos para actuar, lilas y morados para dar jerarquía, blanco para respirar. Letras Kepler Std para títulos y Neulis Neue para leer fácil.</p>
+    <div class="meta" aria-label="Ideas clave">
+      <span class="pill">Maximalista legible</span>
+      <span class="pill">Rojo ↔ Morado en hover</span>
+      <span class="pill dark">1440px · 12 columnas · base 8px</span>
+    </div>
+  </div>
+</div>
+
+<main id="contenido">
+<div class="wrap">
+
+<!-- COLORES -->
+<section id="colores" aria-labelledby="t-colores">
+  <span class="section-kicker">01 · Colores</span>
+  <h2 class="section-title" id="t-colores">Paleta y para qué sirve cada color</h2>
+  <p class="section-desc">Toca “Copiar” para llevarte el código. Los claros dan frescura, los oscuros dan estabilidad, el blanco da pausa.</p>
+  <div class="grid cols-2 cols-4" id="palette"></div>
+  <p style="margin-top:16px;font-size:16px">Orden de uso: <code class="inline">#FF1E17 acción principal</code> → <code class="inline">#BF0F0C secundaria / hover</code> → <code class="inline">#7F0000 profundo</code> · <code class="inline">#DC8EFF fondos suaves</code> · <code class="inline">#9D50BE secundarios</code> · <code class="inline">#5D117D jerarquía</code> · <code class="inline">#FFFFFF base</code></p>
+</section>
+
+<!-- TIPOGRAFÍA -->
+<section id="tipografia" aria-labelledby="t-tipo">
+  <span class="section-kicker">02 · Tipografía</span>
+  <h2 class="section-title" id="t-tipo">Letras con propósito</h2>
+  <p class="section-desc">Kepler Std solo para títulos y frases grandes. Neulis Neue para todo lo que se lee seguido: texto, botones y menús. Incluye en tu web: <code class="inline">&lt;link rel="stylesheet" href="https://use.typekit.net/guo6nyk.css"&gt;</code></p>
+  <div class="grid cols-2">
+    <div class="type-card"><small>Display · Kepler Std Black 48px / 1.1</small><div class="type-display">Diseño que se atreve</div></div>
+    <div class="type-card"><small>Título 1 · Kepler Std Bold 38px / 1.15</small><div class="type-h1">Claridad con carácter</div></div>
+    <div class="type-card"><small>Título 2 · Kepler Std Semibold 30px / 1.2</small><div class="type-h2">Energía editorial</div></div>
+    <div class="type-card"><small>Título 3 · Neulis Neue Medium 22px / 1.3</small><div class="type-h3">Subsección estable y legible</div></div>
+    <div class="type-card"><small>Cuerpo grande · Neulis Neue Regular 20px / 1.5</small><p class="type-body-lg">El cuerpo mantiene la calma frente al maximalismo. Espacio suficiente, lectura fácil para creadores y desarrolladores.</p></div>
+    <div class="type-card"><small>Cuerpo · Neulis Neue Regular 18px / 1.45</small><p class="type-body-md">La jerarquía se hace con tamaño, peso y color, nunca solo con tamaño. Nunca bajes de 16px.</p></div>
+    <div class="type-card"><small>Botones y etiquetas · Neulis Neue Medium 16–18px</small><p class="type-label">Botones y etiquetas con presencia</p><p class="type-caption">Pequeño / caption · Regular 14px — avisos y detalles</p><p class="type-italic" style="font-size:22px">Itálica solo para acentos: citas o palabras clave.</p></div>
+    <div class="type-card"><small>Regla de uso</small><p class="type-body-md">No uses Kepler en párrafos largos ni menús. No mezcles muchos grosores en la misma parte. Acompaña el color con peso, borde o subrayado.</p></div>
+  </div>
+</section>
+
+<!-- ESPACIADO + ELEVACIÓN -->
+<section id="espaciado" aria-labelledby="t-esp">
+  <span class="section-kicker">03 · Espaciado y profundidad</span>
+  <h2 class="section-title" id="t-esp">Aire estratégico y capas suaves</h2>
+  <p class="section-desc">Todo se mide en múltiplos de 8px. Secciones separadas 64–96px. Ancho máximo 1440px centrado. Base plana, sombra solo para decir “esto se puede tocar”.</p>
+  <h3>Escala (8 · 16 · 24 · 32 · 48 · 64 · 96)</h3>
+  <div class="bar-row" aria-hidden="true">
+    <div class="bar"><i style="width:32px;height:8px"></i>8</div>
+    <div class="bar"><i style="width:32px;height:16px"></i>16</div>
+    <div class="bar"><i style="width:32px;height:24px"></i>24</div>
+    <div class="bar"><i style="width:32px;height:32px"></i>32</div>
+    <div class="bar"><i style="width:32px;height:48px"></i>48</div>
+    <div class="bar"><i style="width:32px;height:64px"></i>64</div>
+    <div class="bar"><i style="width:32px;height:96px"></i>96</div>
+  </div>
+  <div class="grid cols-2 cols-4" style="margin-top:24px">
+    <div class="elev s1"><strong>Plano</strong><p>Reposo, solo color.</p><code class="inline">sin sombra</code></div>
+    <div class="elev s2"><strong>Sutil</strong><p>Hover, se puede tocar.</p><code class="inline">0 2px 6px</code></div>
+    <div class="elev s3"><strong>Media</strong><p>Destacadas y menús.</p><code class="inline">0 6px 16px</code></div>
+    <div class="elev s4"><strong>Alta</strong><p>Ventanas y avisos.</p><code class="inline">0 10px 28px</code></div>
+  </div>
+  <p style="font-size:16px">Superposición permitida si no tapa la lectura. Fondo oscuro 40–50% para enfocar. Profundidad también con tamaño, contraste y movimiento, no solo sombra.</p>
+  <h3>Cómo se adapta (mobile-first)</h3>
+  <div style="overflow-x:auto">
+  <table class="bp-table">
+    <thead><tr><th>Pantalla</th><th>Columnas</th><th>Bordes</th><th>Entre partes</th></tr></thead>
+    <tbody>
+      <tr><td>Móvil 320–599</td><td>1</td><td>16px</td><td>32–48px</td></tr>
+      <tr><td>Tableta 600–1023</td><td>2–3</td><td>32–48px</td><td>48–64px</td></tr>
+      <tr><td>Escritorio 1024–1439</td><td>12</td><td>48–64px</td><td>64–96px</td></tr>
+      <tr><td>Amplio 1440+</td><td>12 centrado 1440px</td><td>extra como margen</td><td>64–96px</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- FORMAS -->
+<section id="formas" aria-labelledby="t-form">
+  <span class="section-kicker">04 · Radios y formas</span>
+  <h2 class="section-title" id="t-form">Orden redondeado + acentos libres</h2>
+  <p class="section-desc">Rectángulo muy redondeado para lo útil (botones, tarjetas, campos). Formas libres y manchas solo como adorno puntual. En móvil se quitan si estorban.</p>
+  <div class="grid cols-2 cols-4">
+    <div><div class="radius-demo" style="border-radius:var(--radius-sm)">sm · 8px</div></div>
+    <div><div class="radius-demo" style="border-radius:var(--radius-md)">md · 16px</div></div>
+    <div><div class="radius-demo" style="border-radius:var(--radius-lg)">lg · 24px</div></div>
+    <div><div class="radius-demo" style="border-radius:var(--radius-xl)">xl · 32px</div></div>
+  </div>
+  <div class="grid cols-2" style="margin-top:20px">
+    <div class="card-text">
+      <strong>Píldora total — full 9999px</strong>
+      <p>Solo para chips y badges. No abuses de redondear todo: úsalo con intención.</p>
+      <span class="chip chip-default">Etiqueta ejemplo</span>
+    </div>
+    <div class="card-text" style="background:var(--color-secondary-deep);color:#fff;border:none">
+      <strong style="color:#fff">Formas orgánicas</strong>
+      <p style="color:#f3d9ff">Manchas, ondas y curvas amplias que suavizan el contraste fuerte. Acompañan o se montan sobre fotos, nunca detrás de textos largos.</p>
+      <div style="height:56px;background:var(--color-secondary-bright);border-radius:48% 52% 60% 40% / 50% 45% 55% 50%" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTES -->
+<section id="componentes" aria-labelledby="t-comp">
+  <span class="section-kicker">05 · Componentes</span>
+  <h2 class="section-title" id="t-comp">Piezas con cambio rojo ↔ morado</h2>
+  <p class="section-desc">Pasa el mouse o toca para ver el cambio de color. Todo mide mínimo 44px para dedos y teclado.</p>
+
+  <h3>Botones</h3>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <button class="btn btn-primary" type="button">Principal #FF1E17</button>
+    <button class="btn btn-secondary" type="button">Secundario #9D50BE</button>
+    <button class="btn btn-ghost" type="button">Fantasma</button>
+    <a class="btn btn-primary" href="#componentes">Enlace-botón</a>
+  </div>
+  <p style="font-size:16px">Principal pasa a morado <code class="inline">#5D117D</code>. Secundario pasa a rojo <code class="inline">#BF0F0C</code>. Presionado usa <code class="inline">#7F0000</code> y se encoge un poco. Fantasma sin fondo, cambia a la familia contraria y se subraya.</p>
+
+  <h3>Etiquetas y avisos</h3>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <span class="chip chip-default">Lila #DC8EFF</span>
+    <span class="chip chip-strong">Morado #9D50BE</span>
+    <span class="badge badge-alert">Alerta #FF1E17</span>
+    <span class="badge badge-secondary">Secundario #BF0F0C</span>
+  </div>
+
+  <h3>Campos y enlaces</h3>
+  <div class="grid cols-2">
+    <div>
+      <div class="field">
+        <label for="demo-nombre">Nombre (foco morado)</label>
+        <input class="input" id="demo-nombre" type="text" placeholder="Escribe tu nombre" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="demo-mail">Correo con énfasis (foco rojo)</label>
+        <input class="input emphasis" id="demo-mail" type="email" placeholder="hola@ejemplo.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="demo-error">Con error</label>
+        <input class="input error" id="demo-error" type="text" value="Falta un dato" aria-invalid="true" aria-describedby="err-msg">
+        <p id="err-msg" style="color:var(--color-error);font-size:15px;margin:6px 0 0">Revisa este campo, usa #7F0000.</p>
+      </div>
+    </div>
+    <div class="card-text">
+      <p class="link-demo"><a href="#componentes">Enlace base morado #5D117D</a> — en hover cambia a <a href="#componentes">rojo #FF1E17</a> y se subraya. Activo usa #BF0F0C o #9D50BE.</p>
+      <div class="icon-row" aria-label="Íconos">
+        <span class="icon" aria-hidden="true">★</span>
+        <span class="icon alt" aria-hidden="true">✦</span>
+        <span class="icon" aria-hidden="true">→</span>
+      </div>
+      <p style="font-size:16px">Íconos en morado o rojo. Al interactuar se invierten: rojo→morado, morado→rojo.</p>
+    </div>
+  </div>
+
+  <h3>Tarjeta de proyecto con marco</h3>
+  <p style="font-size:16px">La foto va <strong>dentro</strong> del marco ornamental, sin tarjeta cuadrada extra. Elige el color según la foto: busca contraste, no repitas siempre el mismo. Archivo: <code class="inline">assets/Componentes/marco.svg</code></p>
+  <div class="marco-stage">
+    <img id="marco-img" src="assets/Componentes/marco_roj_cl.svg" alt="Marco ornamental de ejemplo para foto de proyecto" width="700" height="400" onerror="this.onerror=null;this.src='assets/Componentes/marco.svg'">
+    <div class="marco-btns" role="group" aria-label="Color del marco">
+      <button type="button" data-marco="assets/Componentes/marco_roj_cl.svg" aria-pressed="true">Rojo #FF1E17</button>
+      <button type="button" data-marco="assets/Componentes/marco_moj_med.svg" aria-pressed="false">Intenso #BF0F0C</button>
+      <button type="button" data-marco="assets/Componentes/marco_roj_osc.svg" aria-pressed="false">Oscuro #7F0000</button>
+      <button type="button" data-marco="assets/Componentes/marco_lila_.svg" aria-pressed="false">Lila #DC8EFF</button>
+      <button type="button" data-marco="assets/Componentes/merco_morado_med.svg" aria-pressed="false">Medio #9D50BE</button>
+      <button type="button" data-marco="assets/Componentes/marco_morado_osc.svg" aria-pressed="false">Profundo #5D117D</button>
+    </div>
+    <p id="marco-msg" style="font-size:15px" aria-live="polite">Si la foto es oscura usa rojo o lila claro. Si es clara o rosada usa morado profundo u oscuro.</p>
+  </div>
+
+  <div class="card-text" style="margin-top:20px">
+    <strong>Bloque de texto estable — xl 32px</strong>
+    <p>El texto de cada proyecto va en un rectángulo horizontal muy redondeado, debajo del marco. Da calma frente a la forma expresiva.</p>
+  </div>
+
+  <h3>Cursor estrella</h3>
+  <p style="font-size:16px">Estrella de <code class="inline">assets/Componentes/cursor_personalizado.svg</code>. Sobre botón rojo se vuelve morada, sobre morado se vuelve roja. Mueve el mouse en el cuadro:</p>
+  <div class="cursor-lab" id="cursor-lab">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2">
+      <button class="btn btn-primary" type="button" data-cursor="#5D117D">Botón rojo</button>
+      <button class="btn btn-secondary" type="button" data-cursor="#FF1E17">Botón morado</button>
+    </div>
+    <svg class="cursor-star" id="cursor-star" viewBox="0 0 637.42 468.89" aria-hidden="true" focusable="false">
+      <polygon fill="#FF1E17" points="348.46 155.83 637.42 186.58 358.23 194.29 446.78 294.16 339.35 213.95 318.71 468.89 291.74 216 228.8 262.48 281.97 187.14 0 186.58 270.58 151.32 174.85 4.91 301.88 137.74 318.54 0 331.31 137.74 420.12 74.03 348.46 155.83"/>
+    </svg>
+    <p style="font-size:15px;position:relative;z-index:2">Nunca usa el mismo color de lo que está debajo.</p>
+  </div>
+</section>
+
+<!-- REGLAS -->
+<section id="reglas" aria-labelledby="t-reg">
+  <span class="section-kicker">06 · Reglas</span>
+  <h2 class="section-title" id="t-reg">Lo que sí y lo que no</h2>
+  <div class="grid cols-2">
+    <div class="do">
+      <h3>Sí hazlo</h3>
+      <ul>
+        <li>Usa rojo #FF1E17 y morado #5D117D para actuar y destacar.</li>
+        <li>Repite el cambio rojo ↔ morado en hover.</li>
+        <li>Kepler solo títulos, Neulis para leer.</li>
+        <li>Retícula de 12 y aire amplio.</li>
+        <li>Formas libres solo como adorno puntual.</li>
+        <li>Blanco como descanso.</li>
+        <li>Sombras suaves solo si ayudan.</li>
+        <li>Se vale montar y asimetría si se lee claro.</li>
+      </ul>
+    </div>
+    <div class="dont">
+      <h3>No lo hagas</h3>
+      <ul>
+        <li>No pongas todo con la misma fuerza, debe haber jerarquía.</li>
+        <li>No llenes de adornos ni los pongas tras textos largos.</li>
+        <li>No satures con muchos contrastes juntos.</li>
+        <li>No uses Kepler en párrafos ni bajes de 16px.</li>
+        <li>No avises solo con color, suma borde o subrayado.</li>
+        <li>No sombras hondas ni 3D real.</li>
+        <li>No texto poco legible ni adorno que tape botones.</li>
+        <li>No metas colores nuevos ni dejes que el adorno mande.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Página de referencia fiel a <strong>DESIGN.md</strong> — tokens: 10 colores · 9 letras · 5 radios · 8 espacios · 15 piezas. Tipografías vía <code class="inline">https://use.typekit.net/guo6nyk.css</code> · Marco <code class="inline">assets/Componentes/marco.svg</code> · Cursor <code class="inline">assets/Componentes/cursor_personalizado.svg</code></p>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// Paleta fiel a DESIGN.md
+(function(){
+  var colors=[
+    {name:"Rojo vibrante · acción principal",hex:"#FF1E17",token:"primary",text:"#fff",role:"Botones principales, alertas, acentos que piden acción inmediata."},
+    {name:"Rojo intenso · secundaria",hex:"#BF0F0C",token:"primary-intense",text:"#fff",role:"Hover secundario, profundidad y énfasis gráfico."},
+    {name:"Rojo oscuro · profundo",hex:"#7F0000",token:"primary-deep",text:"#fff",role:"Presionado, sombras y detalles sobrios con fuerza."},
+    {name:"Lila brillante · suave",hex:"#DC8EFF",token:"secondary-bright",text:"#5D117D",role:"Fondos destacados, etiquetas suaves y respiro expresivo."},
+    {name:"Lila medio · secundario",hex:"#9D50BE",token:"secondary",text:"#fff",role:"Botón secundario, fondos y continuidad entre tonos."},
+    {name:"Morado profundo · jerarquía",hex:"#5D117D",token:"secondary-deep",text:"#fff",role:"Títulos, bloques importantes, hover principal y contraste."},
+    {name:"Blanco · base",hex:"#FFFFFF",token:"neutral",text:"#5D117D",role:"Fondo, descanso y texto sobre oscuros. Equilibra el maximalismo."},
+    {name:"Error",hex:"#7F0000",token:"error → {colors.primary-deep}",text:"#fff",role:"Solo para errores, con borde o texto además de color."}
+  ];
+  var grid=document.getElementById("palette");
+  var toast=document.getElementById("toast");
+  function showToast(msg){
+    toast.textContent=msg;toast.style.display="block";
+    clearTimeout(showToast._t);
+    showToast._t=setTimeout(function(){toast.style.display="none"},1600);
+  }
+  colors.forEach(function(c){
+    var card=document.createElement("article");
+    card.className="swatch";
+    var top=document.createElement("div");
+    top.className="swatch-color";
+    top.style.background=c.hex;
+    top.style.color=c.text;
+    top.innerHTML="<strong>"+c.hex+"</strong>";
+    var body=document.createElement("div");
+    body.className="swatch-body";
+    var h=document.createElement("h3");
+    h.textContent=c.name;
+    var p=document.createElement("p");
+    p.textContent=c.role;
+    var code=document.createElement("code");
+    code.textContent="{colors."+c.token.split(" ")[0]+"}";
+    var btn=document.createElement("button");
+    btn.className="copy-btn";btn.type="button";
+    btn.textContent="Copiar "+c.hex;
+    btn.setAttribute("aria-label","Copiar color "+c.hex);
+    btn.addEventListener("click",function(){
+      var done=function(){showToast("Copiado "+c.hex)};
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(c.hex).then(done,function(){showToast(c.hex)});
+      }else{showToast(c.hex)}
+    });
+    body.appendChild(h);body.appendChild(p);body.appendChild(code);body.appendChild(document.createElement("br"));body.appendChild(btn);
+    card.appendChild(top);card.appendChild(body);
+    grid.appendChild(card);
+  });
+
+  // Marco switcher
+  var marcoImg=document.getElementById("marco-img");
+  var btns=document.querySelectorAll("[data-marco]");
+  btns.forEach(function(b){
+    b.addEventListener("click",function(){
+      btns.forEach(function(x){x.setAttribute("aria-pressed","false")});
+      b.setAttribute("aria-pressed","true");
+      marcoImg.src=b.getAttribute("data-marco");
+      document.getElementById("marco-msg").textContent="Marco "+b.textContent.trim()+" — revisa que contraste con la foto.";
+    });
+  });
+
+  // Cursor estrella demo
+  var lab=document.getElementById("cursor-lab");
+  var star=document.getElementById("cursor-star");
+  var poly=star.querySelector("polygon");
+  function moveStar(clientX,clientY){
+    var r=lab.getBoundingClientRect();
+    var x=clientX-r.left-17, y=clientY-r.top-17;
+    star.style.left=x+"px";star.style.top=y+"px";
+  }
+  lab.addEventListener("mousemove",function(e){
+    moveStar(e.clientX,e.clientY);
+    var t=e.target.closest("[data-cursor]");
+    if(t){poly.setAttribute("fill",t.getAttribute("data-cursor"));}
+    else{
+      // sobre claro -> mayor contraste: morado profundo por defecto
+      poly.setAttribute("fill","#5D117D");
+    }
+  });
+  lab.addEventListener("mouseleave",function(){poly.setAttribute("fill","#FF1E17")});
+})();
+</script>
+</body>
+</html>
