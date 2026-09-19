@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio — Inicio</title>
+<meta name="description" content="Portafolio personal. Mira el sistema de diseño en design.html">
+<link rel="stylesheet" href="https://use.typekit.net/guo6nyk.css">
+<style>
+:root{
+  --primary:#FF1E17; --intense:#BF0F0C; --deep:#7F0000;
+  --lilac:#DC8EFF; --mid:#9D50BE; --dark:#5D117D; --white:#FFFFFF;
+  --fd:"Kepler Std",Georgia,serif; --fb:"Neulis Neue",system-ui,sans-serif;
+  --r-md:16px; --r-xl:32px; --r-full:9999px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--fb);font-size:18px;line-height:1.5;color:var(--dark);background:var(--white)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+header{background:var(--dark);color:#fff;padding:64px 0;position:relative;overflow:hidden}
+header h1{font-family:var(--fd);font-weight:900;font-size:clamp(36px,6vw,52px);line-height:1.1;margin:0 0 12px}
+header h1 em{color:var(--lilac)}
+header p{max-width:60ch;font-size:20px}
+.btn{font:inherit;font-size:16px;font-weight:500;padding:16px 24px;min-height:44px;border-radius:var(--r-md);display:inline-flex;align-items:center;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-p{background:var(--primary);color:#fff}
+.btn-p:hover{background:var(--dark)}
+.btn-g{background:#fff;color:var(--dark);border-color:var(--dark)}
+.btn-g:hover{color:var(--primary);border-color:var(--primary)}
+main{padding:48px 0}
+.card{background:#fff;border:1px solid rgba(93,17,125,.15);border-radius:var(--r-xl);padding:24px;margin-bottom:20px}
+a{color:var(--dark)} a:hover{color:var(--primary)}
+.skip{position:absolute;left:-9999px} .skip:focus{left:8px;top:8px;background:var(--dark);color:#fff;padding:10px}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header><div class="wrap">
+<h1>Hola, soy Natalia. <em>Este es mi portafolio.</em></h1>
+<p>Estética enérgica y elegante en rojos y lilas. Aquí puedes ver mi sistema de diseño completo aplicado.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
+<a class="btn btn-p" href="design.html">Ver sistema de diseño</a>
+<a class="btn btn-g" href="https://github.com/natubv/portfolio">Ver código en GitHub</a>
+</div>
+</div></header>
+<main id="contenido"><div class="wrap">
+<div class="card"><h2 style="font-family:var(--fd)">¿Qué hay aquí?</h2>
+<ul>
+<li><strong>design.html</strong> — referencia visual de colores, letras, formas y piezas.</li>
+<li><strong>DESIGN.md</strong> — reglas del sistema para que la computadora las entienda.</li>
+</ul>
+<p><a href="design.html">Abrir design.html →</a></p>
+</div>
+</div></main>
+</body>
+</html>
