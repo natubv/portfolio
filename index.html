@@ -3,52 +3,456 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portafolio — Inicio</title>
-<meta name="description" content="Portafolio personal. Mira el sistema de diseño en design.html">
+<title>Natalia Ballesteros — Diseñadora Gráfica especializada en Modelado 3D</title>
+<meta name="description" content="Portafolio de Natalia Ballesteros: diseñadora gráfica especializada en modelado 3D. Proyectos, educación, experiencia, habilidades y contacto.">
 <link rel="stylesheet" href="https://use.typekit.net/guo6nyk.css">
 <style>
+/* ===== Tokens derivados de DESIGN.md ===== */
 :root{
-  --primary:#FF1E17; --intense:#BF0F0C; --deep:#7F0000;
-  --lilac:#DC8EFF; --mid:#9D50BE; --dark:#5D117D; --white:#FFFFFF;
-  --fd:"Kepler Std",Georgia,serif; --fb:"Neulis Neue",system-ui,sans-serif;
-  --r-md:16px; --r-xl:32px; --r-full:9999px;
+  --purple-light:#DC8EFF; --purple-medium:#9D50BE; --purple-deep:#5D117D;
+  --red-vibrant:#FF1E17; --red-medium:#BF0F0C; --red-dark:#7F0000;
+  --white:#FFFFFF; --blue-accent:#75B0E3;
+  --ink:var(--purple-deep);
+  --font-display:"Kepler Std","kepler-std",Georgia,serif;
+  --font-body:"Neulis Neue","neulis-neue",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --xs:8px; --sm:16px; --md:24px; --lg:32px; --xl:48px; --2xl:64px; --3xl:96px;
+  --card-gap:24px; --section-h:48px; --section-v:96px; --nav-h:72px;
+  --r-sm:16px; --r-md:24px; --r-lg:32px; --r-full:9999px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:var(--fb);font-size:18px;line-height:1.5;color:var(--dark);background:var(--white)}
-.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
-header{background:var(--dark);color:#fff;padding:64px 0;position:relative;overflow:hidden}
-header h1{font-family:var(--fd);font-weight:900;font-size:clamp(36px,6vw,52px);line-height:1.1;margin:0 0 12px}
-header h1 em{color:var(--lilac)}
-header p{max-width:60ch;font-size:20px}
-.btn{font:inherit;font-size:16px;font-weight:500;padding:16px 24px;min-height:44px;border-radius:var(--r-md);display:inline-flex;align-items:center;text-decoration:none;border:2px solid transparent;cursor:pointer}
-.btn-p{background:var(--primary);color:#fff}
-.btn-p:hover{background:var(--dark)}
-.btn-g{background:#fff;color:var(--dark);border-color:var(--dark)}
-.btn-g:hover{color:var(--primary);border-color:var(--primary)}
-main{padding:48px 0}
-.card{background:#fff;border:1px solid rgba(93,17,125,.15);border-radius:var(--r-xl);padding:24px;margin-bottom:20px}
-a{color:var(--dark)} a:hover{color:var(--primary)}
-.skip{position:absolute;left:-9999px} .skip:focus{left:8px;top:8px;background:var(--dark);color:#fff;padding:10px}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-body);font-size:18px;line-height:1.5;color:var(--ink);background:var(--white)}
+img{max-width:100%}
+h1,h2,h3{line-height:1.15;text-wrap:balance}
+h1{font-family:var(--font-display);font-size:clamp(44px,6vw,72px);font-weight:700;margin:0 0 var(--sm)}
+h2{font-family:var(--font-display);font-size:clamp(32px,4vw,56px);font-weight:700;margin:0 0 var(--xs)}
+h3{font-size:24px;line-height:1.3;margin:0 0 var(--xs)}
+p{margin:0 0 var(--sm)}
+a{color:var(--purple-deep);text-underline-offset:3px}
+a:hover{color:var(--red-vibrant)}
+/* Foco visible AA: halo lila + contorno profundo */
+:focus-visible{outline:3px solid var(--purple-deep);outline-offset:3px;box-shadow:0 0 0 6px rgba(220,142,255,.55)}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--purple-deep);color:#fff;padding:12px 18px;z-index:200;border-radius:0 0 12px 0;font-weight:700}
+.skip-link:focus{left:0;color:#fff}
+/* ===== Nav ===== */
+.topbar{position:sticky;top:0;z-index:100;min-height:var(--nav-h);display:flex;align-items:center;gap:var(--sm);padding:0 var(--section-h);background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:2px solid var(--purple-light)}
+.brand{font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--purple-deep);text-decoration:none;white-space:nowrap}
+.brand b{color:var(--red-vibrant);font-weight:700}
+.navlinks{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+.navlinks a{font-size:18px;font-weight:600;text-decoration:none;padding:10px 12px;border-radius:12px;min-height:44px;display:inline-flex;align-items:center;transition:background-color 200ms,color 200ms}
+.navlinks a:hover{background:var(--purple-light);color:var(--purple-deep)}
+.navlinks a[aria-current="true"]{text-decoration:underline;text-decoration-thickness:3px;text-decoration-color:var(--red-vibrant)}
+.menu-btn{display:none;margin-left:auto;min-height:44px;min-width:44px;border:2px solid var(--purple-medium);background:#fff;border-radius:12px;font:inherit;font-weight:700;color:var(--purple-deep);padding:8px 14px;cursor:pointer}
+/* ===== Layout ===== */
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--section-h)}
+section{padding:var(--2xl) 0;scroll-margin-top:calc(var(--nav-h) + 16px);border-top:2px solid #f0dcff}
+section:first-of-type{border-top:none}
+.kicker{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-medium);margin:0 0 var(--xs)}
+.lead{font-size:20px;max-width:60ch}
+.desc{max-width:75ch;color:var(--ink)}
+/* ===== Botones (primario ajustado a red-medium por contraste AA; hover purple-deep según DESIGN) ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:12px 24px;border-radius:var(--r-sm);font-size:18px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color 200ms,transform 200ms}
+.btn-primary{background:var(--red-medium);color:#fff}
+.btn-primary:hover{background:var(--purple-deep);color:#fff}
+.btn-secondary{background:var(--purple-medium);color:#fff}
+.btn-secondary:hover{background:var(--purple-deep);color:#fff}
+.btn-row{display:flex;gap:var(--sm);flex-wrap:wrap;margin-top:var(--md)}
+/* ===== Hero ===== */
+.hero{max-width:1440px;margin:0 auto;padding:var(--3xl) var(--section-h);display:grid;grid-template-columns:1.15fr .85fr;gap:var(--xl);align-items:center;position:relative;overflow:hidden}
+.eyebrow{font-size:18px;font-weight:600;margin:0 0 var(--xs)}
+.role{font-size:20px;font-weight:700;color:var(--red-medium);margin:0 0 var(--sm)}
+.value{max-width:56ch}
+.avatar-final{margin:0 auto;width:min(360px,86vw)}
+.avatar-final img{display:block;width:100%;height:auto}
+.deco{position:absolute;pointer-events:none;aria-hidden:true}
+.deco svg{display:block;width:100%;height:100%}
+/* ===== Sobre mí ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--md);margin-top:var(--md)}
+.about-card{background:var(--purple-light);color:var(--purple-deep);border-radius:var(--r-md);padding:var(--md)}
+.about-card.red{background:var(--red-medium);color:#fff}
+.about-card h3{margin-bottom:var(--xs)}
+/* ===== Proyectos: tren horizontal ===== */
+.train-wrap{position:relative;margin-top:var(--md)}
+.train{display:flex;gap:var(--card-gap);overflow-x:auto;scroll-snap-type:x mandatory;padding:var(--sm) 4px var(--md);scroll-behavior:smooth;scrollbar-width:thin}
+.pcard{flex:0 0 min(560px,86%);scroll-snap-align:start;text-decoration:none;color:inherit;transition:transform 350ms}
+.pcard:hover,.pcard:focus-within{transform:scale(1.03)}
+.marco{position:relative;aspect-ratio:697/398}
+.marco svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pcard .info{background:var(--infobg,var(--purple-deep));color:#fff;border-radius:var(--r-md) var(--r-lg);padding:var(--md);margin-top:var(--xs)}
+.pcard .info h3{font-size:24px}
+.pcard .info .tag{display:inline-block;font-size:14px;font-weight:600;padding:8px 16px;border-radius:var(--r-full);background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);margin-bottom:var(--xs)}
+.pcard .info p{margin:0}
+.pcard .ext{font-size:14px;font-weight:700;margin-top:var(--xs);display:inline-block}
+.chev{position:absolute;top:32%;z-index:5;width:48px;height:48px;border-radius:50%;border:2px solid var(--purple-deep);background:#fff;color:var(--purple-deep);font-size:24px;font-weight:700;cursor:pointer;line-height:1}
+.chev:hover{background:var(--purple-deep);color:#fff}
+.chev.prev{left:-8px}.chev.next{right:-8px}
+/* ===== Educación / Experiencia: tarjetas estáticas edu_exp.svg ===== */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--lg);margin-top:var(--md)}
+.edu-card{position:relative;aspect-ratio:584/781;max-width:380px;width:100%}
+.edu-card svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.edu-txt{position:absolute;inset:11% 10%;overflow:auto;color:var(--eduink,#5D117D)}
+.edu-txt h3{font-size:24px}
+.edu-txt .inst{font-size:18px;font-weight:600}
+.edu-txt .date{font-size:16px;margin-bottom:var(--xs)}
+.edu-txt p,.edu-txt li{font-size:16px;line-height:1.5}
+.edu-txt ul{margin:var(--xs) 0 0;padding-left:20px}
+/* ===== Habilidades: flip 180° eje Y ===== */
+.skills{display:flex;gap:var(--card-gap);flex-wrap:wrap;margin-top:var(--md)}
+.skill{width:min(300px,100%);aspect-ratio:616/792;perspective:1400px;background:none;border:none;padding:0;cursor:pointer;font:inherit}
+.skill-inner{position:relative;width:100%;height:100%;transition:transform 600ms ease;transform-style:preserve-3d;display:block}
+.skill:hover .skill-inner,.skill.flipped .skill-inner,.skill:focus-visible .skill-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.face-txt{position:absolute;inset:13% 11%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:var(--xs);color:var(--fink,#fff);overflow:auto;padding:4px}
+.face.front .face-txt{font-size:32px;font-weight:700;line-height:1.2}
+.face.back{transform:rotateY(180deg)}
+.face.back .face-txt{font-size:18px;font-weight:400;line-height:1.5}
+.face.back .face-txt strong{display:block;font-size:24px;line-height:1.3}
+.face-txt ul{list-style:none;margin:var(--xs) 0 0;padding:0;font-size:18px}
+/* ===== Contacto ===== */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--lg);margin-top:var(--md);align-items:start}
+.contact-links{display:grid;gap:var(--sm);margin-top:var(--md)}
+.contact-links a{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600}
+form{background:#faf0ff;border:2px solid var(--purple-light);border-radius:var(--r-md);padding:var(--md)}
+.field{display:grid;gap:var(--xs);margin-bottom:var(--sm)}
+.field label{font-size:16px;font-weight:700}
+.field input,.field textarea{font-family:var(--font-body);font-size:18px;padding:14px 18px;border-radius:var(--r-sm);border:2px solid var(--purple-medium);background:#fff;color:var(--purple-deep);width:100%}
+.field textarea{min-height:140px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#7a4a92;font-size:17px}
+.field input:focus,.field textarea:focus{border-color:var(--purple-deep);outline:none;box-shadow:0 0 0 3px rgba(220,142,255,.45)}
+.field .error-msg{font-size:14px;color:var(--red-medium);font-weight:600;min-height:20px;margin:0}
+.field [aria-invalid="true"]{border-color:var(--red-vibrant)}
+.form-ok{font-weight:700;color:var(--purple-deep)}
+footer{border-top:2px solid var(--purple-light);padding:var(--lg) var(--section-h);max-width:1440px;margin:0 auto;display:flex;gap:var(--sm);flex-wrap:wrap;align-items:center}
+/* ===== Responsivo por recomposición ===== */
+@media (max-width:1024px){
+  .hero{grid-template-columns:1fr;padding:var(--xl) var(--section-h)}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .deco{display:none}
+}
+@media (max-width:768px){
+  .topbar{padding:0 var(--sm)}
+  .menu-btn{display:block}
+  .navlinks{display:none;width:100%;flex-direction:column;padding-bottom:12px}
+  .navlinks.open{display:flex}
+  .wrap{padding:0 var(--sm)}
+  .hero{padding:var(--xl) var(--sm)}
+  section{padding:40px 0}
+  .pcard{flex-basis:86%}
+  .chev.prev{left:0}.chev.next{right:0}
+  .avatar-final{width:min(300px,86vw)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .skill:hover .skill-inner{transform:none}
+  .train{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
-<a class="skip" href="#contenido">Saltar al contenido</a>
-<header><div class="wrap">
-<h1>Hola, soy Natalia. <em>Este es mi portafolio.</em></h1>
-<p>Estética enérgica y elegante en rojos y lilas. Aquí puedes ver mi sistema de diseño completo aplicado.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
-<a class="btn btn-p" href="design.html">Ver sistema de diseño</a>
-<a class="btn btn-g" href="https://github.com/natubv/portfolio">Ver código en GitHub</a>
-</div>
-</div></header>
-<main id="contenido"><div class="wrap">
-<div class="card"><h2 style="font-family:var(--fd)">¿Qué hay aquí?</h2>
-<ul>
-<li><strong>design.html</strong> — referencia visual de colores, letras, formas y piezas.</li>
-<li><strong>DESIGN.md</strong> — reglas del sistema para que la computadora las entienda.</li>
-</ul>
-<p><a href="design.html">Abrir design.html →</a></p>
-</div>
-</div></main>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><clipPath id="clip-marco"><path d="M697.61,0H0v12.81c.02.15.66,15.59,0,35.54v.2s0,.2,0,.2v.4c1.92,57.97,11.49,92.07,29.27,104.26,4.61,3.16,10.09,4.76,16.3,4.76,2.75,0,5.64-.32,8.68-.95-2.41,5.13-2.97,8.75-2.97,11.74,0,8.06,3.5,19.48,20.16,28.13,1.55.8,3.2,1.58,4.95,2.32-1.91.83-3.7,1.7-5.37,2.61-16.17,8.8-19.56,20.3-19.56,28.39,0,3.1.49,7.33,2.97,13.65-4.87-1.54-9.49-2.31-13.85-2.31-7.19,0-17.4,3.25-25.14,18.72-4.02,8.03-7.17,18.72-9.65,32.67C1.59,316.84.32,345.05,0,364.54v.2s0,.2,0,.2c.2,12.26,0,20.63,0,20.71v.15s0,.15,0,.15v12.29h697.6v-12.59c0-.08-.2-8.45,0-20.71v-.2s0-.2,0-.2c-.32-19.49-1.58-47.7-5.8-71.41-2.48-13.96-5.64-24.65-9.65-32.67-7.74-15.47-17.94-18.72-25.14-18.72-4.35,0-8.97.77-13.85,2.31,2.48-6.32,2.97-10.55,2.97-13.65,0-8.09-3.39-19.58-19.56-28.39-1.67-.91-3.46-1.78-5.37-2.61,1.75-.74,3.4-1.51,4.95-2.32,16.67-8.65,20.16-20.07,20.16-28.13,0-2.98-.56-6.61-2.97-11.74,3.05.63,5.94.95,8.68.95,6.21,0,11.69-1.6,16.3-4.76,17.78-12.19,27.35-46.29,29.26-104.26v-.2s0-.2,0-.2v-.4c-.66-19.95-.02-35.39-.01-35.54v-.26s.01-.26.01-.26V0h0Z"/></clipPath><clipPath id="clip-hab"><path d="M566.69,0h-.19c-30.17.36-73.8,1.77-110.37,6.46-21.17,2.72-37.29,6.15-49.31,10.49-7.89,2.85-13.97,6.1-18.59,9.92-8.97,7.42-10.85,15.72-10.85,21.38,0,4.57.84,9.26,2.53,14.1-9.02-2.87-16.64-4.29-22.96-4.29-13.22,0-25.31,5.12-34.97,14.81-5.13,5.15-9.63,11.62-13.48,19.35-2.21-4.55-4.62-8.66-7.24-12.3-13.12-18.24-29.13-22.06-40.24-22.06-4.3,0-10.48.77-20.63,4.88.5-2.14.81-4.23.96-6.26.67-9.39-2.25-17.81-8.45-24.34-11.44-12.06-33.8-20.18-70.37-25.53C138.36,3.05,108.49.83,73.75,0h-.19s-.19,0-.19,0h-.38c-9.4.23-19.07.34-28.74.34C27.87.34,17.07.01,16.96,0h-.25s-.25,0-.25,0H0v776s0,16,0,16h16.96c.11-.01,10.92-.34,27.29-.34,9.66,0,19.33.11,28.74.34h.19s.19,0,.19,0h.38c34.74-.83,64.61-3.05,88.79-6.59,36.57-5.36,58.93-13.47,70.37-25.53,6.19-6.53,9.11-14.95,8.45-24.34-.15-2.04-.46-4.12-.96-6.26,10.15,4.11,16.33,4.88,20.63,4.88,11.12,0,27.12-3.83,40.24-22.06,2.62-3.64,5.04-7.75,7.24-12.3,3.84,7.74,8.34,14.2,13.48,19.35,9.65,9.69,21.75,14.81,34.97,14.81,6.32,0,13.95-1.42,22.96-4.29-1.69,4.84-2.53,9.53-2.53,14.1,0,5.65,1.88,13.95,10.85,21.38,4.62,3.82,10.7,7.07,18.59,9.92,12.01,4.34,28.14,7.77,49.31,10.49,36.57,4.69,80.2,6.11,110.37,6.46h.19s.19,0,.19,0c5.78-.07,11.56-.1,17.19-.1,9.52,0,15.37.1,15.43.1h.14s.14,0,.14,0h16.46V16s0-16,0-16h-16.74c-.06,0-5.91.1-15.43.1-5.63,0-11.42-.03-17.19-.1h-.19Z"/></clipPath><clipPath id="clip-edu"><path d="M584.86,0l-16.08.08L15.92,2.88l-15.92.08v762.11s0,16,0,16h16.93c.1-.01,10.32-.32,25.8-.32,9.14,0,18.28.11,27.18.32h.19s.19,0,.19,0h.38c32.91-.79,61.21-2.89,84.13-6.25,34.8-5.1,56.12-12.86,67.09-24.42,6.03-6.36,8.88-14.55,8.23-23.69-.1-1.45-.3-2.92-.58-4.42,8.6,3.33,14.15,4.03,18.34,4.03,10.71,0,26.14-3.68,38.77-21.22,2.21-3.07,4.28-6.49,6.18-10.25,3.5,6.73,7.55,12.41,12.13,17.01,9.3,9.33,20.95,14.26,33.7,14.26,5.69,0,12.46-1.19,20.39-3.61-1.28,4.11-1.92,8.12-1.92,12.03,0,5.54,1.84,13.65,10.58,20.89,4.45,3.68,10.28,6.8,17.84,9.53,11.43,4.13,26.75,7.39,46.84,9.97,34.64,4.45,75.97,5.78,104.54,6.12h.19s.19,0,.19,0c5.47-.06,10.94-.1,16.26-.1,9,0,14.53.1,14.58.1h.14s.14,0,.14,0h16.43V16.08s0-16.08,0-16.08h0Z"/></clipPath></defs></svg>
+
+<header class="topbar">
+  <a class="brand" href="#inicio">Natalia Ballesteros <b>●</b></a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú de navegación">Menú</button>
+  <nav class="navlinks" id="nav" aria-label="Secciones del portafolio">
+    <a href="#inicio">Inicio</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#educacion">Educación</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main id="contenido">
+  <!-- ===== HERO ===== -->
+  <div class="hero" id="inicio">
+    <div class="deco" style="top:24px;right:8%;width:120px;height:120px;color:#9D50BE" aria-hidden="true">
+      <svg viewBox="0 0 974.04 974.04" fill="none" stroke="currentColor" stroke-width="99" stroke-linecap="round"><line x1="186" y1="169" x2="787" y2="804"/><line x1="191" y1="809" x2="782" y2="164"/><line x1="491" y1="924" x2="482" y2="49"/><line x1="924" y1="482" x2="49" y2="491"/></svg>
+    </div>
+    <div>
+      <p class="eyebrow">Hola, soy Natalia. Diseño ideas con intención y las convierto en experiencias visuales que conectan.</p>
+      <h1>Natalia Ballesteros</h1>
+      <p class="role">Diseñadora Gráfica especializada en Modelado 3D</p>
+      <p class="value">Soy una diseñadora creativa que trabaja desde la empatía, la curiosidad y la experimentación. Busco entender primero a las personas para después transformar necesidades, historias e ideas en soluciones visuales innovadoras, funcionales y con personalidad. Me interesa combinar diseño, narrativa, imagen y tecnología para crear experiencias que no solo se vean bien, sino que comuniquen con claridad y generen una conexión.</p>
+      <p class="btn-row">
+        <a class="btn btn-primary" href="#proyectos">Conoce mi trabajo</a>
+        <a class="btn btn-secondary" href="#contacto">Contáctame</a>
+      </p>
+    </div>
+    <figure class="avatar-final">
+      <img src="assets/componentes/sobremi.png" alt="Retrato de Natalia Ballesteros" fetchpriority="high">
+    </figure>
+  </div>
+
+  <div class="wrap">
+  <!-- ===== SOBRE MÍ ===== -->
+  <section id="sobre-mi" aria-labelledby="h-sobre">
+    <p class="kicker">Sobre mí</p>
+    <h2 id="h-sobre">Diseño desde la empatía</h2>
+    <p class="desc">Diseñadora gráfica digital nacida y residente en la Ciudad de México. Estudio Diseño Gráfico Digital en la Universidad La Salle, con graduación prevista en mayo de 2027.</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Modelado 3D e intereses</h3>
+        <p>Me interesa especialmente el <strong>modelado 3D</strong>, área en la que quiero continuar especializándome. También disfruto la ilustración, la identidad visual, las interfaces y la comunicación gráfica: me apasiona ver cómo una misma idea se transforma según el medio, de una pieza estática a una animación, un objeto tridimensional o una experiencia digital.</p>
+      </div>
+      <div class="about-card red">
+        <h3>Cómo trabajo</h3>
+        <p>Parto de la observación y la empatía: comprender el contexto y las necesidades antes de diseñar, experimentar con soluciones y mantenerme abierta a la retroalimentación. Fuera del ámbito académico soy tatuadora —precisión y sensibilidad visual— y creo contenido musical para redes, explorando la comunicación digital desde lo espontáneo y cultural.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROYECTOS ===== -->
+  <section id="proyectos" aria-labelledby="h-proy">
+    <p class="kicker">Proyectos · Modelado 3D, dirección visual, identidad e interfaces</p>
+    <h2 id="h-proy">Trabajo seleccionado</h2>
+    <p class="desc">Carrusel horizontal de gran formato: aproximadamente dos proyectos por vista en escritorio. Usa las flechas o desliza para recorrer.</p>
+    <div class="train-wrap">
+      <button class="chev prev" id="prevBtn" aria-label="Ver proyectos anteriores">‹</button>
+      <div class="train" id="train" tabindex="0" role="region" aria-label="Carrusel de proyectos">
+        <article class="pcard">
+          <div class="marco">
+            <svg viewBox="0 0 697.61 398.22" role="img" aria-label="Preview del personaje 3D Amiga KWANGYA del universo visual de aespa">
+              <g clip-path="url(#clip-marco)"><image href="assets/componentes/modelado/Comp 2.gif" x="0" y="0" width="697.61" height="398.22" preserveAspectRatio="xMidYMid slice"/></g>
+              <path d="M685.61,12v.29s-.68,15.75,0,36.45h0c-1.13,34.37-6.03,82.4-24.05,94.76-2.69,1.85-5.92,2.66-9.51,2.66-23.52,0-62.68-34.74-69.82-41.26-.73-.68-1.14-1.05-1.14-1.05,0,0,.4.38,1.14,1.05,7.71,7.15,52.11,48.97,52.11,64.04,0,30.17-87.63,30.4-87.63,30.4,0,0,.02,0,.06,0,2.55,0,87.39.23,87.39,31.04,0,18.79-40.05,63.86-41.59,65.58-.03.03-.05.06-.05.06,0,0,.02-.02.05-.06,1.46-1.63,38.05-42.25,64.46-42.25,23.76,0,27.98,73.65,28.59,111.01-.21,12.69,0,21.2,0,21.2v.29H12v-.29s.21-8.51,0-21.2c.61-37.35,4.83-111.01,28.59-111.01,26.41,0,63,40.62,64.46,42.25.03.03.05.06.05.06h0,0s-.02-.02-.05-.06c-1.54-1.72-41.59-46.79-41.59-65.58,0-30.81,84.86-31.04,87.39-31.04.04,0,.06,0,.06,0,0,0-87.63-.24-87.63-30.4,0-15.08,44.39-56.89,52.11-64.04.74-.67,1.14-1.05,1.14-1.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0-.41.38-1.14,1.05-7.14,6.52-46.3,41.26-69.82,41.26-3.59,0-6.82-.81-9.51-2.66-18.02-12.35-22.92-60.39-24.05-94.76h0c.68-20.71,0-36.45,0-36.45v-.29h673.6ZM697.61,0H0v12.81c.02.15.66,15.59,0,35.54v.2s0,.2,0,.2v.4c1.92,57.97,11.49,92.07,29.27,104.26,4.61,3.16,10.09,4.76,16.3,4.76,2.75,0,5.64-.32,8.68-.95-2.41,5.13-2.97,8.75-2.97,11.74,0,8.06,3.5,19.48,20.16,28.13,1.55.8,3.2,1.58,4.95,2.32-1.91.83-3.7,1.7-5.37,2.61-16.17,8.8-19.56,20.3-19.56,28.39,0,3.1.49,7.33,2.97,13.65-4.87-1.54-9.49-2.31-13.85-2.31-7.19,0-17.4,3.25-25.14,18.72-4.02,8.03-7.17,18.72-9.65,32.67C1.59,316.84.32,345.05,0,364.54v.2s0,.2,0,.2c.2,12.26,0,20.63,0,20.71v.15s0,.15,0,.15v12.29h697.6v-12.59c0-.08-.2-8.45,0-20.71v-.2s0-.2,0-.2c-.32-19.49-1.58-47.7-5.8-71.41-2.48-13.96-5.64-24.65-9.65-32.67-7.74-15.47-17.94-18.72-25.14-18.72-4.35,0-8.97.77-13.85,2.31,2.48-6.32,2.97-10.55,2.97-13.65,0-8.09-3.39-19.58-19.56-28.39-1.67-.91-3.46-1.78-5.37-2.61,1.75-.74,3.4-1.51,4.95-2.32,16.67-8.65,20.16-20.07,20.16-28.13,0-2.98-.56-6.61-2.97-11.74,3.05.63,5.94.95,8.68.95,6.21,0,11.69-1.6,16.3-4.76,17.78-12.19,27.35-46.29,29.26-104.26v-.2s0-.2,0-.2v-.4c-.66-19.95-.02-35.39-.01-35.54v-.26s.01-.26.01-.26V0h0Z" fill="#5D117D"/>
+            </svg>
+          </div>
+          <div class="info" style="--infobg:#5D117D">
+            <span class="tag">Personaje 3D · Diseño y modelado</span>
+            <h3>Amiga KWANGYA</h3>
+            <p>Creación y modelado de un personaje 3D como extensión del universo visual de aespa: un acompañante que vincula a las idols con sus fans, con diseño de personaje, modelado, vestuario e identidad visual propia.</p>
+          </div>
+        </article>
+        <article class="pcard">
+          <div class="marco">
+            <svg viewBox="0 0 697.61 398.22" role="img" aria-label="Preview de la escena 3D Una batalla silenciosa sobre madres buscadoras">
+              <g clip-path="url(#clip-marco)"><image href="assets/componentes/modelado/libroazul_1.gif" x="0" y="0" width="697.61" height="398.22" preserveAspectRatio="xMidYMid slice"/></g>
+              <path d="M685.61,12v.29s-.68,15.75,0,36.45h0c-1.13,34.37-6.03,82.4-24.05,94.76-2.69,1.85-5.92,2.66-9.51,2.66-23.52,0-62.68-34.74-69.82-41.26-.73-.68-1.14-1.05-1.14-1.05,0,0,.4.38,1.14,1.05,7.71,7.15,52.11,48.97,52.11,64.04,0,30.17-87.63,30.4-87.63,30.4,0,0,.02,0,.06,0,2.55,0,87.39.23,87.39,31.04,0,18.79-40.05,63.86-41.59,65.58-.03.03-.05.06-.05.06,0,0,.02-.02.05-.06,1.46-1.63,38.05-42.25,64.46-42.25,23.76,0,27.98,73.65,28.59,111.01-.21,12.69,0,21.2,0,21.2v.29H12v-.29s.21-8.51,0-21.2c.61-37.35,4.83-111.01,28.59-111.01,26.41,0,63,40.62,64.46,42.25.03.03.05.06.05.06h0,0s-.02-.02-.05-.06c-1.54-1.72-41.59-46.79-41.59-65.58,0-30.81,84.86-31.04,87.39-31.04.04,0,.06,0,.06,0,0,0-87.63-.24-87.63-30.4,0-15.08,44.39-56.89,52.11-64.04.74-.67,1.14-1.05,1.14-1.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0-.41.38-1.14,1.05-7.14,6.52-46.3,41.26-69.82,41.26-3.59,0-6.82-.81-9.51-2.66-18.02-12.35-22.92-60.39-24.05-94.76h0c.68-20.71,0-36.45,0-36.45v-.29h673.6ZM697.61,0H0v12.81c.02.15.66,15.59,0,35.54v.2s0,.2,0,.2v.4c1.92,57.97,11.49,92.07,29.27,104.26,4.61,3.16,10.09,4.76,16.3,4.76,2.75,0,5.64-.32,8.68-.95-2.41,5.13-2.97,8.75-2.97,11.74,0,8.06,3.5,19.48,20.16,28.13,1.55.8,3.2,1.58,4.95,2.32-1.91.83-3.7,1.7-5.37,2.61-16.17,8.8-19.56,20.3-19.56,28.39,0,3.1.49,7.33,2.97,13.65-4.87-1.54-9.49-2.31-13.85-2.31-7.19,0-17.4,3.25-25.14,18.72-4.02,8.03-7.17,18.72-9.65,32.67C1.59,316.84.32,345.05,0,364.54v.2s0,.2,0,.2c.2,12.26,0,20.63,0,20.71v.15s0,.15,0,.15v12.29h697.6v-12.59c0-.08-.2-8.45,0-20.71v-.2s0-.2,0-.2c-.32-19.49-1.58-47.7-5.8-71.41-2.48-13.96-5.64-24.65-9.65-32.67-7.74-15.47-17.94-18.72-25.14-18.72-4.35,0-8.97.77-13.85,2.31,2.48-6.32,2.97-10.55,2.97-13.65,0-8.09-3.39-19.58-19.56-28.39-1.67-.91-3.46-1.78-5.37-2.61,1.75-.74,3.4-1.51,4.95-2.32,16.67-8.65,20.16-20.07,20.16-28.13,0-2.98-.56-6.61-2.97-11.74,3.05.63,5.94.95,8.68.95,6.21,0,11.69-1.6,16.3-4.76,17.78-12.19,27.35-46.29,29.26-104.26v-.2s0-.2,0-.2v-.4c-.66-19.95-.02-35.39-.01-35.54v-.26s.01-.26.01-.26V0h0Z" fill="#7F0000"/>
+            </svg>
+          </div>
+          <div class="info" style="--infobg:#7F0000">
+            <span class="tag">Modelado 3D · Narrativa visual</span>
+            <h3>Una batalla silenciosa</h3>
+            <p>Narrativa visual en 3D sobre la lucha cotidiana de las madres buscadoras en México: escenario, objetos, iluminación y composición para comunicar ausencia y búsqueda constante.</p>
+          </div>
+        </article>
+        <article class="pcard">
+          <div class="marco">
+            <svg viewBox="0 0 697.61 398.22" role="img" aria-label="Preview de la identidad México en los aires aplicada en celulares para Avianca">
+              <g clip-path="url(#clip-marco)"><image href="assets/componentes/identidad/Comp 2_1.gif" x="0" y="0" width="697.61" height="398.22" preserveAspectRatio="xMidYMid slice"/></g>
+              <path d="M685.61,12v.29s-.68,15.75,0,36.45h0c-1.13,34.37-6.03,82.4-24.05,94.76-2.69,1.85-5.92,2.66-9.51,2.66-23.52,0-62.68-34.74-69.82-41.26-.73-.68-1.14-1.05-1.14-1.05,0,0,.4.38,1.14,1.05,7.71,7.15,52.11,48.97,52.11,64.04,0,30.17-87.63,30.4-87.63,30.4,0,0,.02,0,.06,0,2.55,0,87.39.23,87.39,31.04,0,18.79-40.05,63.86-41.59,65.58-.03.03-.05.06-.05.06,0,0,.02-.02.05-.06,1.46-1.63,38.05-42.25,64.46-42.25,23.76,0,27.98,73.65,28.59,111.01-.21,12.69,0,21.2,0,21.2v.29H12v-.29s.21-8.51,0-21.2c.61-37.35,4.83-111.01,28.59-111.01,26.41,0,63,40.62,64.46,42.25.03.03.05.06.05.06h0,0s-.02-.02-.05-.06c-1.54-1.72-41.59-46.79-41.59-65.58,0-30.81,84.86-31.04,87.39-31.04.04,0,.06,0,.06,0,0,0-87.63-.24-87.63-30.4,0-15.08,44.39-56.89,52.11-64.04.74-.67,1.14-1.05,1.14-1.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0-.41.38-1.14,1.05-7.14,6.52-46.3,41.26-69.82,41.26-3.59,0-6.82-.81-9.51-2.66-18.02-12.35-22.92-60.39-24.05-94.76h0c.68-20.71,0-36.45,0-36.45v-.29h673.6ZM697.61,0H0v12.81c.02.15.66,15.59,0,35.54v.2s0,.2,0,.2v.4c1.92,57.97,11.49,92.07,29.27,104.26,4.61,3.16,10.09,4.76,16.3,4.76,2.75,0,5.64-.32,8.68-.95-2.41,5.13-2.97,8.75-2.97,11.74,0,8.06,3.5,19.48,20.16,28.13,1.55.8,3.2,1.58,4.95,2.32-1.91.83-3.7,1.7-5.37,2.61-16.17,8.8-19.56,20.3-19.56,28.39,0,3.1.49,7.33,2.97,13.65-4.87-1.54-9.49-2.31-13.85-2.31-7.19,0-17.4,3.25-25.14,18.72-4.02,8.03-7.17,18.72-9.65,32.67C1.59,316.84.32,345.05,0,364.54v.2s0,.2,0,.2c.2,12.26,0,20.63,0,20.71v.15s0,.15,0,.15v12.29h697.6v-12.59c0-.08-.2-8.45,0-20.71v-.2s0-.2,0-.2c-.32-19.49-1.58-47.7-5.8-71.41-2.48-13.96-5.64-24.65-9.65-32.67-7.74-15.47-17.94-18.72-25.14-18.72-4.35,0-8.97.77-13.85,2.31,2.48-6.32,2.97-10.55,2.97-13.65,0-8.09-3.39-19.58-19.56-28.39-1.67-.91-3.46-1.78-5.37-2.61,1.75-.74,3.4-1.51,4.95-2.32,16.67-8.65,20.16-20.07,20.16-28.13,0-2.98-.56-6.61-2.97-11.74,3.05.63,5.94.95,8.68.95,6.21,0,11.69-1.6,16.3-4.76,17.78-12.19,27.35-46.29,29.26-104.26v-.2s0-.2,0-.2v-.4c-.66-19.95-.02-35.39-.01-35.54v-.26s.01-.26.01-.26V0h0Z" fill="#9D50BE"/>
+            </svg>
+          </div>
+          <div class="info" style="--infobg:#5D117D">
+            <span class="tag">Identidad visual · Dirección gráfica</span>
+            <h3>México en los aires</h3>
+            <p>Identidad para Avianca inspirada en México 1968: ritmo, repetición y patrones geométricos en una reinterpretación contemporánea para la aerolínea.</p>
+          </div>
+        </article>
+        <a class="pcard" href="https://infografia-nataliab.page.gd/BallesterosN_Panoptico.html?classId=9960a007-6e4d-4d24-a878-b4865af45feb&amp;assignmentId=b259796b-fc4f-4ed8-a419-1716d6511dd5&amp;submissionId=a9bef32f-8929-8f90-6b46-9eb86c05a14c&amp;i=1" target="_blank" rel="noopener" aria-label="Abrir infografía interactiva El nuevo panóptico en sitio externo">
+          <div class="marco">
+            <svg viewBox="0 0 697.61 398.22" role="img" aria-label="Preview de la infografía interactiva El nuevo panóptico">
+              <g clip-path="url(#clip-marco)"><image href="assets/componentes/infografia/panoptico.gif" x="0" y="0" width="697.61" height="398.22" preserveAspectRatio="xMidYMid slice"/></g>
+              <path d="M685.61,12v.29s-.68,15.75,0,36.45h0c-1.13,34.37-6.03,82.4-24.05,94.76-2.69,1.85-5.92,2.66-9.51,2.66-23.52,0-62.68-34.74-69.82-41.26-.73-.68-1.14-1.05-1.14-1.05,0,0,.4.38,1.14,1.05,7.71,7.15,52.11,48.97,52.11,64.04,0,30.17-87.63,30.4-87.63,30.4,0,0,.02,0,.06,0,2.55,0,87.39.23,87.39,31.04,0,18.79-40.05,63.86-41.59,65.58-.03.03-.05.06-.05.06,0,0,.02-.02.05-.06,1.46-1.63,38.05-42.25,64.46-42.25,23.76,0,27.98,73.65,28.59,111.01-.21,12.69,0,21.2,0,21.2v.29H12v-.29s.21-8.51,0-21.2c.61-37.35,4.83-111.01,28.59-111.01,26.41,0,63,40.62,64.46,42.25.03.03.05.06.05.06h0,0s-.02-.02-.05-.06c-1.54-1.72-41.59-46.79-41.59-65.58,0-30.81,84.86-31.04,87.39-31.04.04,0,.06,0,.06,0,0,0-87.63-.24-87.63-30.4,0-15.08,44.39-56.89,52.11-64.04.74-.67,1.14-1.05,1.14-1.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0-.41.38-1.14,1.05-7.14,6.52-46.3,41.26-69.82,41.26-3.59,0-6.82-.81-9.51-2.66-18.02-12.35-22.92-60.39-24.05-94.76h0c.68-20.71,0-36.45,0-36.45v-.29h673.6ZM697.61,0H0v12.81c.02.15.66,15.59,0,35.54v.2s0,.2,0,.2v.4c1.92,57.97,11.49,92.07,29.27,104.26,4.61,3.16,10.09,4.76,16.3,4.76,2.75,0,5.64-.32,8.68-.95-2.41,5.13-2.97,8.75-2.97,11.74,0,8.06,3.5,19.48,20.16,28.13,1.55.8,3.2,1.58,4.95,2.32-1.91.83-3.7,1.7-5.37,2.61-16.17,8.8-19.56,20.3-19.56,28.39,0,3.1.49,7.33,2.97,13.65-4.87-1.54-9.49-2.31-13.85-2.31-7.19,0-17.4,3.25-25.14,18.72-4.02,8.03-7.17,18.72-9.65,32.67C1.59,316.84.32,345.05,0,364.54v.2s0,.2,0,.2c.2,12.26,0,20.63,0,20.71v.15s0,.15,0,.15v12.29h697.6v-12.59c0-.08-.2-8.45,0-20.71v-.2s0-.2,0-.2c-.32-19.49-1.58-47.7-5.8-71.41-2.48-13.96-5.64-24.65-9.65-32.67-7.74-15.47-17.94-18.72-25.14-18.72-4.35,0-8.97.77-13.85,2.31,2.48-6.32,2.97-10.55,2.97-13.65,0-8.09-3.39-19.58-19.56-28.39-1.67-.91-3.46-1.78-5.37-2.61,1.75-.74,3.4-1.51,4.95-2.32,16.67-8.65,20.16-20.07,20.16-28.13,0-2.98-.56-6.61-2.97-11.74,3.05.63,5.94.95,8.68.95,6.21,0,11.69-1.6,16.3-4.76,17.78-12.19,27.35-46.29,29.26-104.26v-.2s0-.2,0-.2v-.4c-.66-19.95-.02-35.39-.01-35.54v-.26s.01-.26.01-.26V0h0Z" fill="#BF0F0C"/>
+            </svg>
+          </div>
+          <div class="info" style="--infobg:#7F0000">
+            <span class="tag">Infografía interactiva · Diseño de información</span>
+            <h3>El nuevo panóptico</h3>
+            <p>Infografía digital e interactiva sobre la evolución del panóptico, del utilitarismo a la sociedad contemporánea: vigilancia, observación y comportamiento.</p>
+            <span class="ext">Abrir infografía ↗</span>
+          </div>
+        </a>
+      </div>
+      <button class="chev next" id="nextBtn" aria-label="Ver proyectos siguientes">›</button>
+    </div>
+  </section>
+
+  <!-- ===== EDUCACIÓN ===== -->
+  <section id="educacion" aria-labelledby="h-edu">
+    <p class="kicker">Educación</p>
+    <h2 id="h-edu">Formación</h2>
+    <div class="edu-grid">
+      <article class="edu-card" style="--eduink:#5D117D" aria-label="Licenciatura en Diseño Gráfico Digital">
+        <svg viewBox="0 0 584.86 781.06" aria-hidden="true" focusable="false"><g clip-path="url(#clip-edu)"><rect width="584.86" height="781.06" fill="#DC8EFF"/></g><path d="M568.86,16.08v748.98s-.43,0-.43,0c0,0-5.59-.1-14.86-.1-4.64,0-10.2.02-16.45.1-55.19-.65-163.99-5.15-163.99-30.52,0-28.2,60.01-67.27,62.42-68.83.04-.03.08-.05.08-.05,0,0,0,0,0,0h0s0,0,0,0h0,0s0,0,0,0h0s0,0,0,0c0,0-.04.02-.08.05-2.54,1.64-69.12,44.41-96.89,44.41-46.14,0-45.86-93.1-45.86-93.37h0s0,0,0,0h0c0,.27-.42,93.57-44.92,93.57-22.28,0-84.05-47.4-94.62-55.63-1-.79-1.56-1.22-1.56-1.22,0,0,.55.44,1.56,1.22,11.1,8.79,77.6,63,57.03,84.7-18.25,19.24-89.21,24.47-139.99,25.68h0c-10.2-.24-19.58-.32-27.56-.32-15.95,0-26.3.32-26.3.32h-.43V18.88s552.86-2.8,552.86-2.8h0ZM584.86,0l-16.08.08L15.92,2.88l-15.92.08v762.11s0,16,0,16h16.93c.1-.01,10.32-.32,25.8-.32,9.14,0,18.28.11,27.18.32h.19s.19,0,.19,0h.38c32.91-.79,61.21-2.89,84.13-6.25,34.8-5.1,56.12-12.86,67.09-24.42,6.03-6.36,8.88-14.55,8.23-23.69-.1-1.45-.3-2.92-.58-4.42,8.6,3.33,14.15,4.03,18.34,4.03,10.71,0,26.14-3.68,38.77-21.22,2.21-3.07,4.28-6.49,6.18-10.25,3.5,6.73,7.55,12.41,12.13,17.01,9.3,9.33,20.95,14.26,33.7,14.26,5.69,0,12.46-1.19,20.39-3.61-1.28,4.11-1.92,8.12-1.92,12.03,0,5.54,1.84,13.65,10.58,20.89,4.45,3.68,10.28,6.8,17.84,9.53,11.43,4.13,26.75,7.39,46.84,9.97,34.64,4.45,75.97,5.78,104.54,6.12h.19s.19,0,.19,0c5.47-.06,10.94-.1,16.26-.1,9,0,14.53.1,14.58.1h.14s.14,0,.14,0h16.43V16.08s0-16.08,0-16.08h0Z" fill="#5D117D"/></svg>
+        <div class="edu-txt">
+          <h3>Licenciatura en Diseño Gráfico Digital</h3>
+          <p class="inst">Universidad La Salle</p>
+          <p class="date">2023 – 2027</p>
+          <p>Diseñadora gráfica digital en formación, con especialización en modelado 3D.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCIA ===== -->
+  <section id="experiencia" aria-labelledby="h-exp">
+    <p class="kicker">Experiencia</p>
+    <h2 id="h-exp">Práctica y comunidad</h2>
+    <div class="edu-grid">
+      <article class="edu-card" style="--eduink:#FFFFFF" aria-label="Servicio social en Universidad La Salle">
+        <svg viewBox="0 0 584.86 781.06" aria-hidden="true" focusable="false"><g clip-path="url(#clip-edu)"><rect width="584.86" height="781.06" fill="#BF0F0C"/></g><path d="M568.86,16.08v748.98s-.43,0-.43,0c0,0-5.59-.1-14.86-.1-4.64,0-10.2.02-16.45.1-55.19-.65-163.99-5.15-163.99-30.52,0-28.2,60.01-67.27,62.42-68.83.04-.03.08-.05.08-.05,0,0,0,0,0,0h0s0,0,0,0h0,0s0,0,0,0h0s0,0,0,0c0,0-.04.02-.08.05-2.54,1.64-69.12,44.41-96.89,44.41-46.14,0-45.86-93.1-45.86-93.37h0s0,0,0,0h0c0,.27-.42,93.57-44.92,93.57-22.28,0-84.05-47.4-94.62-55.63-1-.79-1.56-1.22-1.56-1.22,0,0,.55.44,1.56,1.22,11.1,8.79,77.6,63,57.03,84.7-18.25,19.24-89.21,24.47-139.99,25.68h0c-10.2-.24-19.58-.32-27.56-.32-15.95,0-26.3.32-26.3.32h-.43V18.88s552.86-2.8,552.86-2.8h0ZM584.86,0l-16.08.08L15.92,2.88l-15.92.08v762.11s0,16,0,16h16.93c.1-.01,10.32-.32,25.8-.32,9.14,0,18.28.11,27.18.32h.19s.19,0,.19,0h.38c32.91-.79,61.21-2.89,84.13-6.25,34.8-5.1,56.12-12.86,67.09-24.42,6.03-6.36,8.88-14.55,8.23-23.69-.1-1.45-.3-2.92-.58-4.42,8.6,3.33,14.15,4.03,18.34,4.03,10.71,0,26.14-3.68,38.77-21.22,2.21-3.07,4.28-6.49,6.18-10.25,3.5,6.73,7.55,12.41,12.13,17.01,9.3,9.33,20.95,14.26,33.7,14.26,5.69,0,12.46-1.19,20.39-3.61-1.28,4.11-1.92,8.12-1.92,12.03,0,5.54,1.84,13.65,10.58,20.89,4.45,3.68,10.28,6.8,17.84,9.53,11.43,4.13,26.75,7.39,46.84,9.97,34.64,4.45,75.97,5.78,104.54,6.12h.19s.19,0,.19,0c5.47-.06,10.94-.1,16.26-.1,9,0,14.53.1,14.58.1h.14s.14,0,.14,0h16.43V16.08s0-16.08,0-16.08h0Z" fill="#7F0000"/></svg>
+        <div class="edu-txt">
+          <h3>Servicio Social</h3>
+          <p class="inst">Universidad La Salle</p>
+          <p class="date">2025 – 2026</p>
+          <p>Proyectos de comunicación visual con enfoque social para la comunidad lasallista.</p>
+          <ul>
+            <li>Ilustraciones con enfoque social: prevención del suicidio y Día de la Paz.</li>
+            <li>Infografías para redes: horarios y foros, con jerarquía y claridad.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="edu-card" style="--eduink:#5D117D" aria-label="Subcoordinadora de grupo estudiantil">
+        <svg viewBox="0 0 584.86 781.06" aria-hidden="true" focusable="false"><g clip-path="url(#clip-edu)"><rect width="584.86" height="781.06" fill="#DC8EFF"/></g><path d="M568.86,16.08v748.98s-.43,0-.43,0c0,0-5.59-.1-14.86-.1-4.64,0-10.2.02-16.45.1-55.19-.65-163.99-5.15-163.99-30.52,0-28.2,60.01-67.27,62.42-68.83.04-.03.08-.05.08-.05,0,0,0,0,0,0h0s0,0,0,0h0,0s0,0,0,0h0s0,0,0,0c0,0-.04.02-.08.05-2.54,1.64-69.12,44.41-96.89,44.41-46.14,0-45.86-93.1-45.86-93.37h0s0,0,0,0h0c0,.27-.42,93.57-44.92,93.57-22.28,0-84.05-47.4-94.62-55.63-1-.79-1.56-1.22-1.56-1.22,0,0,.55.44,1.56,1.22,11.1,8.79,77.6,63,57.03,84.7-18.25,19.24-89.21,24.47-139.99,25.68h0c-10.2-.24-19.58-.32-27.56-.32-15.95,0-26.3.32-26.3.32h-.43V18.88s552.86-2.8,552.86-2.8h0ZM584.86,0l-16.08.08L15.92,2.88l-15.92.08v762.11s0,16,0,16h16.93c.1-.01,10.32-.32,25.8-.32,9.14,0,18.28.11,27.18.32h.19s.19,0,.19,0h.38c32.91-.79,61.21-2.89,84.13-6.25,34.8-5.1,56.12-12.86,67.09-24.42,6.03-6.36,8.88-14.55,8.23-23.69-.1-1.45-.3-2.92-.58-4.42,8.6,3.33,14.15,4.03,18.34,4.03,10.71,0,26.14-3.68,38.77-21.22,2.21-3.07,4.28-6.49,6.18-10.25,3.5,6.73,7.55,12.41,12.13,17.01,9.3,9.33,20.95,14.26,33.7,14.26,5.69,0,12.46-1.19,20.39-3.61-1.28,4.11-1.92,8.12-1.92,12.03,0,5.54,1.84,13.65,10.58,20.89,4.45,3.68,10.28,6.8,17.84,9.53,11.43,4.13,26.75,7.39,46.84,9.97,34.64,4.45,75.97,5.78,104.54,6.12h.19s.19,0,.19,0c5.47-.06,10.94-.1,16.26-.1,9,0,14.53.1,14.58.1h.14s.14,0,.14,0h16.43V16.08s0-16.08,0-16.08h0Z" fill="#5D117D"/></svg>
+        <div class="edu-txt">
+          <h3>Subcoordinadora de grupo estudiantil</h3>
+          <p class="inst">Universidad La Salle</p>
+          <p class="date">2023 – 2025</p>
+          <p>Comunicación visual para un grupo misionero: diseño, coordinación y contenidos.</p>
+          <ul>
+            <li>Proyectos de comunicación visual alineados a objetivos.</li>
+            <li>Merchandising coherente y funcional.</li>
+            <li>Coordinación, seguimiento y evaluación de actividades.</li>
+            <li>Estrategia y gestión de contenidos en redes.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== HABILIDADES ===== -->
+  <section id="habilidades" aria-labelledby="h-hab">
+    <p class="kicker">Habilidades · Software · Idiomas</p>
+    <h2 id="h-hab">Capacidades</h2>
+    <p class="desc">Tarjetas con flip de 180°: toca, haz clic o usa el teclado para voltearlas. Sin porcentajes: capacidades directas.</p>
+    <div class="skills" id="skills"></div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto" aria-labelledby="h-contact">
+    <p class="kicker">Contacto</p>
+    <h2 id="h-contact">¿Creamos algo juntos?</h2>
+    <p class="desc">Estoy abierta a colaborar en proyectos de diseño, modelado 3D, identidad, interfaces y experiencias visuales donde pueda aportar creatividad, investigación y una perspectiva centrada en las personas.</p>
+    <div class="contact-grid">
+      <div class="contact-links">
+        <a href="mailto:natibv73@gmail.com">✉️ natibv73@gmail.com</a>
+        <a href="tel:+525513714083">📞 +52 55 1371 4083</a>
+        <a href="https://instagram.com/natilla__devainilla" target="_blank" rel="noopener">📸 @natilla__devainilla</a>
+      </div>
+      <form id="contactForm" novalidate aria-label="Formulario de contacto">
+        <div class="field">
+          <label for="c-nombre">Nombre</label>
+          <input id="c-nombre" name="nombre" type="text" placeholder="Ej. Natalia Ballesteros" autocomplete="name" required>
+          <p class="error-msg" id="e-nombre" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="c-correo">Correo</label>
+          <input id="c-correo" name="correo" type="email" placeholder="hola@ejemplo.com" autocomplete="email" required>
+          <p class="error-msg" id="e-correo" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="c-msg">Mensaje</label>
+          <textarea id="c-msg" name="mensaje" placeholder="Cuéntame del proyecto…" required></textarea>
+          <p class="error-msg" id="e-msg" aria-live="polite"></p>
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+        <p class="form-ok" id="formOk" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+  </div>
+</main>
+
+<footer>
+  <strong>Natalia Ballesteros</strong><span>·</span><span>Portafolio one-page en HTML/CSS/JS vanilla</span><span>·</span><span id="year"></span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  /* Menú móvil */
+  var btn=document.getElementById("menuBtn"),nav=document.getElementById("nav");
+  btn.addEventListener("click",function(){
+    var open=nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded",open?"true":"false");
+    btn.setAttribute("aria-label",open?"Cerrar menú de navegación":"Abrir menú de navegación");
+  });
+  nav.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){
+      if(nav.classList.contains("open")){nav.classList.remove("open");btn.setAttribute("aria-expanded","false");}
+    });
+  });
+  /* Carrusel */
+  var train=document.getElementById("train");
+  function step(){var c=train.querySelector(".pcard");return c?c.getBoundingClientRect().width+24:570;}
+  document.getElementById("prevBtn").addEventListener("click",function(){train.scrollBy({left:-step(),behavior:"smooth"});});
+  document.getElementById("nextBtn").addEventListener("click",function(){train.scrollBy({left:step(),behavior:"smooth"});});
+  /* Habilidades: 8 + software + idiomas, alternando familia roja/morada (marco oscuro → interior misma familia) */
+  var RED={frame:"#7F0000",fill:"#BF0F0C",ink:"#FFFFFF"};
+  var PURPLE={frame:"#5D117D",fill:"#DC8EFF",ink:"#5D117D"};
+  var data=[
+    {t:"Modelado y producción 3D",b:"Personajes, vestuario y ambientación 3D con intención narrativa.",c:RED},
+    {t:"Pensamiento visual y conceptual",b:"De la idea al concepto: observación, referencias y exploración formal.",c:PURPLE},
+    {t:"Comunicación y narrativa visual",b:"Historias que se entienden: jerarquía, ritmo y claridad.",c:RED},
+    {t:"Identidad visual",b:"Sistemas gráficos con personalidad: ritmo, repetición y patrón.",c:PURPLE},
+    {t:"Diseño de interfaces",b:"Interfaces claras y funcionales, centradas en las personas.",c:PURPLE},
+    {t:"Investigación y diseño centrado en las personas",b:"Empatía primero: contexto, necesidades y retroalimentación.",c:RED},
+    {t:"Organización y trabajo colaborativo",b:"Procesos ordenados, seguimiento y apertura al feedback.",c:PURPLE},
+    {t:"Software",b:"Autodesk Maya · Substance Painter · After Effects · Illustrator · Photoshop · Figma",c:RED},
+    {t:"Idiomas",b:"Inglés — Avanzado · Italiano — Intermedio · Coreano — Intermedio · Alemán — Básico",c:RED}
+  ];
+  var box=document.getElementById("skills");
+  data.forEach(function(s){
+    var el=document.createElement("button");
+    el.className="skill";el.type="button";el.setAttribute("aria-pressed","false");
+    el.setAttribute("aria-label",s.t+", activar para voltear");
+    function faceSVG(c){return '<svg viewBox="0 0 616.24 792" aria-hidden="true" focusable="false"><g clip-path="url(#clip-hab)"><rect width="616.24" height="792" fill="'+c.fill+'"/></g><path d="M73.37,16c53.66,1.28,128.65,6.8,147.93,27.14,21.75,22.93-48.53,80.22-60.26,89.51-1.06.83-1.65,1.29-1.65,1.29,0,0,.59-.46,1.65-1.29,11.16-8.7,76.45-58.79,99.99-58.79,47.04,0,47.46,98.63,47.47,98.87h0s0,0,0,0c0-.24-.31-98.67,48.46-98.67,29.34,0,99.7,45.19,102.39,46.93.05.03.09.06.09.06h0s0,0,0,0c0,0-.04-.02-.09-.06-2.55-1.65-65.96-42.93-65.96-72.73,0-26.81,114.98-31.56,173.3-32.25,6.6.08,12.48.1,17.38.1,9.8,0,15.71-.1,15.71-.1h.46v760s-.46,0-.46,0c0,0-5.9-.1-15.71-.1-4.9,0-10.78.03-17.38.1-58.32-.69-173.3-5.45-173.3-32.25,0-29.8,63.41-71.09,65.96-72.73.05-.03.09-.06.09-.06h0s-.04.02-.09.06c-2.69,1.73-73.05,46.93-102.39,46.93-48.78,0-48.46-98.43-48.46-98.67h0s0,0,0,0h0c0,.24-.43,98.88-47.47,98.88-23.54,0-88.82-50.09-99.99-58.79-1.05-.83-1.65-1.29-1.65-1.29,0,0,.58.46,1.65,1.29,11.73,9.29,82.01,66.58,60.26,89.51-19.29,20.34-94.28,25.86-147.93,27.14h0c-10.78-.26-20.69-.34-29.12-.34-16.86,0-27.79.34-27.79.34h-.46V16s.46,0,.46,0c0,0,10.93.34,27.79.34,8.43,0,18.35-.09,29.12-.34h0ZM566.69,0h-.19c-30.17.36-73.8,1.77-110.37,6.46-21.17,2.72-37.29,6.15-49.31,10.49-7.89,2.85-13.97,6.1-18.59,9.92-8.97,7.42-10.85,15.72-10.85,21.38,0,4.57.84,9.26,2.53,14.1-9.02-2.87-16.64-4.29-22.96-4.29-13.22,0-25.31,5.12-34.97,14.81-5.13,5.15-9.63,11.62-13.48,19.35-2.21-4.55-4.62-8.66-7.24-12.3-13.12-18.24-29.13-22.06-40.24-22.06-4.3,0-10.48.77-20.63,4.88.5-2.14.81-4.23.96-6.26.67-9.39-2.25-17.81-8.45-24.34-11.44-12.06-33.8-20.18-70.37-25.53C138.36,3.05,108.49.83,73.75,0h-.19s-.19,0-.19,0h-.38c-9.4.23-19.07.34-28.74.34C27.87.34,17.07.01,16.96,0h-.25s-.25,0-.25,0H0v776s0,16,0,16h16.96c.11-.01,10.92-.34,27.29-.34,9.66,0,19.33.11,28.74.34h.19s.19,0,.19,0h.38c34.74-.83,64.61-3.05,88.79-6.59,36.57-5.36,58.93-13.47,70.37-25.53,6.19-6.53,9.11-14.95,8.45-24.34-.15-2.04-.46-4.12-.96-6.26,10.15,4.11,16.33,4.88,20.63,4.88,11.12,0,27.12-3.83,40.24-22.06,2.62-3.64,5.04-7.75,7.24-12.3,3.84,7.74,8.34,14.2,13.48,19.35,9.65,9.69,21.75,14.81,34.97,14.81,6.32,0,13.95-1.42,22.96-4.29-1.69,4.84-2.53,9.53-2.53,14.1,0,5.65,1.88,13.95,10.85,21.38,4.62,3.82,10.7,7.07,18.59,9.92,12.01,4.34,28.14,7.77,49.31,10.49,36.57,4.69,80.2,6.11,110.37,6.46h.19s.19,0,.19,0c5.78-.07,11.56-.1,17.19-.1,9.52,0,15.37.1,15.43.1h.14s.14,0,.14,0h16.46V16s0-16,0-16h-16.74c-.06,0-5.91.1-15.43.1-5.63,0-11.42-.03-17.19-.1h-.19Z" fill="'+c.frame+'"/></svg>';}
+    el.innerHTML='<span class="skill-inner"><span class="face front">'+faceSVG(s.c)+'<span class="face-txt" style="--fink:'+s.c.ink+'">'+s.t+'</span></span><span class="face back">'+faceSVG(s.c)+'<span class="face-txt" style="--fink:'+s.c.ink+'"><span>'+s.b+'</span></span></span></span>';
+    el.addEventListener("click",function(){
+      var on=el.classList.toggle("flipped");el.setAttribute("aria-pressed",on?"true":"false");
+    });
+    box.appendChild(el);
+  });
+  /* Sección activa en nav */
+  var links={};nav.querySelectorAll("a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){Object.values(links).forEach(function(l){l.removeAttribute("aria-current");});var l=links[e.target.id];if(l)l.setAttribute("aria-current","true");}
+      });
+    },{rootMargin:"-40% 0px -55% 0px"});
+    ["inicio","sobre-mi","proyectos","educacion","experiencia","habilidades","contacto"].forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
+  }
+  /* Formulario: validación + mailto (sin backend) */
+  var form=document.getElementById("contactForm");
+  function setErr(input,msgId,msg){
+    var m=document.getElementById(msgId);m.textContent=msg||"";
+    input.setAttribute("aria-invalid",msg?"true":"false");
+    return !msg;
+  }
+  form.addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var n=document.getElementById("c-nombre"),c=document.getElementById("c-correo"),g=document.getElementById("c-msg"),ok=true;
+    ok=setErr(n,"e-nombre",n.value.trim()?"":"Escribe tu nombre.")&&ok;
+    ok=setErr(c,"e-correo",/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.value.trim())?"":"Escribe un correo válido.")&&ok;
+    ok=setErr(g,"e-msg",g.value.trim().length>=10?"":"Cuéntame un poco más (mínimo 10 caracteres).")&&ok;
+    var done=document.getElementById("formOk");
+    if(!ok){done.textContent="";return;}
+    var subject=encodeURIComponent("Contacto portafolio — "+n.value.trim());
+    var body=encodeURIComponent(g.value.trim()+"\n\n— "+n.value.trim()+" ("+c.value.trim()+")");
+    window.location.href="mailto:natibv73@gmail.com?subject="+subject+"&body="+body;
+    done.textContent="¡Gracias! Se abrió tu correo para enviar el mensaje.";
+    form.reset();
+  });
+  document.getElementById("year").textContent="© "+new Date().getFullYear();
+})();
+</script>
 </body>
 </html>

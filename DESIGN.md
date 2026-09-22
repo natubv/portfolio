@@ -1,342 +1,368 @@
 ---
 version: alpha
-name: "Marca maximalista — Rojo vibrante / Morado profundo"
-description: "Sistema enérgico, atrevido y elegante en rojos y lilas, con Kepler Std para títulos y Neulis Neue para texto. Alto contraste, ornamentación puntual y claridad funcional."
+name: Natalia Ballesteros
+description: Sistema maximalista expresivo en rojo y morado con base editorial Kepler Std + Neulis Neue, reticula 12 columnas y concentraciones controladas de energia grafica.
 colors:
-  primary: "#FF1E17"
-  primary-intense: "#BF0F0C"
-  primary-deep: "#7F0000"
-  secondary-bright: "#DC8EFF"
+  purple-light: "#DC8EFF"
+  purple-medium: "#9D50BE"
+  purple-deep: "#5D117D"
+  red-vibrant: "#FF1E17"
+  red-medium: "#BF0F0C"
+  red-dark: "#7F0000"
+  white: "#FFFFFF"
+  blue-accent: "#75B0E3"
+  primary: "#5D117D"
   secondary: "#9D50BE"
-  secondary-deep: "#5D117D"
+  tertiary: "#FF1E17"
   neutral: "#FFFFFF"
-  surface: "{colors.neutral}"
-  on-surface: "{colors.secondary-deep}"
-  error: "{colors.primary-deep}"
+  error: "#FF1E17"
 typography:
-  display:
-    fontFamily: "Kepler Std"
-    fontSize: "48px"
-    fontWeight: 900
-    lineHeight: 1.1
-  headline-lg:
-    fontFamily: "Kepler Std"
-    fontSize: "38px"
+  display-kepler:
+    fontFamily: Kepler Std
+    fontSize: 72px
     fontWeight: 700
-    lineHeight: 1.15
-  headline-md:
-    fontFamily: "Kepler Std"
-    fontSize: "30px"
+    lineHeight: 1.1
+  h1-kepler:
+    fontFamily: Kepler Std
+    fontSize: 56px
+    fontWeight: 700
+    lineHeight: 1.1
+  nav:
+    fontFamily: Neulis Neue
+    fontSize: 18px
     fontWeight: 600
-    lineHeight: 1.2
-  headline-sm:
-    fontFamily: "Neulis Neue"
-    fontSize: "22px"
-    fontWeight: 500
-    lineHeight: 1.3
-  body-lg:
-    fontFamily: "Neulis Neue"
-    fontSize: "20px"
+    lineHeight: 1.4
+  body:
+    fontFamily: Neulis Neue
+    fontSize: 18px
     fontWeight: 400
     lineHeight: 1.5
-  body-md:
-    fontFamily: "Neulis Neue"
-    fontSize: "18px"
+  body-sm:
+    fontFamily: Neulis Neue
+    fontSize: 16px
     fontWeight: 400
-    lineHeight: 1.45
-  label-lg:
-    fontFamily: "Neulis Neue"
-    fontSize: "18px"
-    fontWeight: 500
+    lineHeight: 1.5
+  card-title:
+    fontFamily: Neulis Neue
+    fontSize: 24px
+    fontWeight: 700
     lineHeight: 1.4
-  label-md:
-    fontFamily: "Neulis Neue"
-    fontSize: "16px"
-    fontWeight: 500
-    lineHeight: 1.4
-  caption:
-    fontFamily: "Neulis Neue"
-    fontSize: "14px"
+  card-body:
+    fontFamily: Neulis Neue
+    fontSize: 18px
     fontWeight: 400
     lineHeight: 1.4
-rounded:
-  sm: "8px"
-  md: "16px"
-  lg: "24px"
-  xl: "32px"
-  full: "9999px"
+  chip:
+    fontFamily: Neulis Neue
+    fontSize: 14px
+    fontWeight: 600
+    lineHeight: 1.4
+  input-text:
+    fontFamily: Neulis Neue
+    fontSize: 18px
+    fontWeight: 400
+    lineHeight: 1.4
+  input-placeholder:
+    fontFamily: Neulis Neue
+    fontSize: 17px
+    fontWeight: 400
+    lineHeight: 1.4
+  input-label:
+    fontFamily: Neulis Neue
+    fontSize: 16px
+    fontWeight: 700
+    lineHeight: 1.4
+  input-helper:
+    fontFamily: Neulis Neue
+    fontSize: 14px
+    fontWeight: 400
+    lineHeight: 1.4
+  skill-front:
+    fontFamily: Neulis Neue
+    fontSize: 32px
+    fontWeight: 700
+    lineHeight: 1.2
+  skill-back-title:
+    fontFamily: Neulis Neue
+    fontSize: 24px
+    fontWeight: 700
+    lineHeight: 1.3
+  skill-back-body:
+    fontFamily: Neulis Neue
+    fontSize: 18px
+    fontWeight: 400
+    lineHeight: 1.5
+  edu-title:
+    fontFamily: Neulis Neue
+    fontSize: 24px
+    fontWeight: 700
+    lineHeight: 1.3
+  edu-institution:
+    fontFamily: Neulis Neue
+    fontSize: 18px
+    fontWeight: 600
+    lineHeight: 1.4
+  edu-date:
+    fontFamily: Neulis Neue
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 1.4
 spacing:
-  base: "8px"
-  xs: "8px"
-  sm: "16px"
-  md: "24px"
-  lg: "32px"
-  xl: "48px"
-  2xl: "64px"
-  3xl: "96px"
+  base: 8px
+  xs: 8px
+  sm: 16px
+  md: 24px
+  lg: 32px
+  xl: 48px
+  2xl: 64px
+  3xl: 96px
+  card-gap: 24px
+  section-h: 48px
+  section-v: 96px
+  nav-h: 72px
+rounded:
+  none: 0px
+  sm: 16px
+  md: 24px
+  lg: 32px
+  full: 9999px
 components:
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.neutral}"
-    typography: "{typography.label-md}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm}"
+    backgroundColor: "{colors.red-vibrant}"
+    textColor: "{colors.white}"
+    typography: "{typography.nav}"
+    rounded: "{rounded.sm}"
+    padding: 16px
   button-primary-hover:
-    backgroundColor: "{colors.secondary-deep}"
-    textColor: "{colors.neutral}"
-    typography: "{typography.label-md}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm}"
-  button-primary-active:
-    backgroundColor: "{colors.primary-deep}"
-    textColor: "{colors.neutral}"
-    typography: "{typography.label-md}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm}"
+    backgroundColor: "{colors.purple-deep}"
+    textColor: "{colors.white}"
+    typography: "{typography.nav}"
+    rounded: "{rounded.sm}"
+    padding: 16px
   button-secondary:
-    backgroundColor: "{colors.secondary}"
-    textColor: "{colors.neutral}"
-    typography: "{typography.label-md}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm}"
-  button-secondary-hover:
-    backgroundColor: "{colors.primary-intense}"
-    textColor: "{colors.neutral}"
-    typography: "{typography.label-md}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm}"
+    backgroundColor: "{colors.purple-medium}"
+    textColor: "{colors.white}"
+    typography: "{typography.nav}"
+    rounded: "{rounded.sm}"
+    padding: 16px
   button-ghost:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.secondary-deep}"
-    typography: "{typography.label-md}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm}"
-  chip-default:
-    backgroundColor: "{colors.secondary-bright}"
-    textColor: "{colors.secondary-deep}"
-    typography: "{typography.label-md}"
+    backgroundColor: transparent
+    textColor: "{colors.purple-deep}"
+    typography: "{typography.nav}"
+    rounded: "{rounded.sm}"
+    padding: 16px
+  chip:
+    backgroundColor: "{colors.purple-medium}"
+    textColor: "{colors.white}"
+    typography: "{typography.chip}"
     rounded: "{rounded.full}"
-    padding: "{spacing.sm}"
-  chip-strong:
-    backgroundColor: "{colors.secondary}"
-    textColor: "{colors.neutral}"
-    typography: "{typography.label-md}"
-    rounded: "{rounded.full}"
-    padding: "{spacing.sm}"
-  badge-alert:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.neutral}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.full}"
-    padding: "{spacing.xs}"
-  badge-secondary:
-    backgroundColor: "{colors.primary-intense}"
-    textColor: "{colors.neutral}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.full}"
-    padding: "{spacing.xs}"
-  input-default:
-    backgroundColor: "{colors.neutral}"
-    textColor: "{colors.on-surface}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm}"
-  input-error:
-    backgroundColor: "{colors.neutral}"
-    textColor: "{colors.error}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.sm}"
-  link-default:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.secondary-deep}"
-    typography: "{typography.body-md}"
-  link-hover:
-    backgroundColor: "{colors.surface}"
+    padding: 16px
+  chip-light:
+    backgroundColor: "{colors.purple-light}"
     textColor: "{colors.primary}"
-    typography: "{typography.body-md}"
-  card-text:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.on-surface}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.xl}"
-    padding: "{spacing.md}"
+    typography: "{typography.chip}"
+    rounded: "{rounded.full}"
+    padding: 16px
+  card:
+    backgroundColor: "{colors.purple-medium}"
+    textColor: "{colors.white}"
+    typography: "{typography.card-body}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  card-purple-light:
+    backgroundColor: "{colors.purple-light}"
+    textColor: "{colors.primary}"
+    typography: "{typography.card-body}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  card-red-dark:
+    backgroundColor: "{colors.red-dark}"
+    textColor: "{colors.neutral}"
+    typography: "{typography.card-body}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  card-red-medium:
+    backgroundColor: "{colors.red-medium}"
+    textColor: "{colors.neutral}"
+    typography: "{typography.card-body}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  input:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.purple-deep}"
+    typography: "{typography.input-text}"
+    rounded: "{rounded.sm}"
+    padding: 18px
+  input-focus:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.purple-deep}"
+    typography: "{typography.input-text}"
+    rounded: "{rounded.sm}"
+    padding: 18px
+  input-error:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.purple-deep}"
+    typography: "{typography.input-text}"
+    rounded: "{rounded.sm}"
+    padding: 18px
+  navbar:
+    backgroundColor: transparent
+    textColor: "{colors.white}"
+    typography: "{typography.nav}"
+    height: 72px
+    padding: 16px
+  hero:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.purple-deep}"
+    typography: "{typography.body}"
+    padding: 48px
+  project-card-info:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.purple-deep}"
+    typography: "{typography.card-body}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  skill-card-red:
+    backgroundColor: "{colors.red-vibrant}"
+    textColor: "{colors.white}"
+    typography: "{typography.skill-back-body}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  skill-card-purple:
+    backgroundColor: "{colors.purple-medium}"
+    textColor: "{colors.white}"
+    typography: "{typography.skill-back-body}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  edu-card:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.purple-deep}"
+    typography: "{typography.body-sm}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  icon:
+    backgroundColor: transparent
+    textColor: "{colors.red-vibrant}"
+    typography: "{typography.body}"
+    size: 24px
 ---
 
-# Sistema de diseño de marca
+# Natalia Ballesteros
 
 ## Overview
 
-Estética enérgica, atrevida y elegante, apoyada en rojos vibrantes y lilas con un tono oscuro para dar seguridad. Transmite seguridad, dinamismo y creatividad.
+Sistema maximalista, expresivo, energetico y dinamico, equilibrado con estructura clara y espacios amplios de descanso visual. El maximalismo son concentraciones controladas de energia grafica, no acumulacion constante. Conviven zonas de alta intensidad con areas limpias para mantener claridad, legibilidad y jerarquia.
 
-Identidad maximalista pero legible: layouts llamativos con blanco estratégico para dar aire sin vaciar la composición, y tipografía con propósito. Pensada para creadores y desarrolladores; respeta el tiempo y la carga cognitiva.
-
-En una frase: acento audaz sin abrumar, alto contraste y componentes con ornamentación que complementan, dan personalidad y llaman la atención.
-
-La jerarquía de color general es: `{colors.primary}` acción principal, `{colors.primary-intense}` acción secundaria / hover, `{colors.primary-deep}` estados profundos o activos, `{colors.secondary-bright}` fondos y acentos suaves, `{colors.secondary}` componentes secundarios, `{colors.secondary-deep}` jerarquía, contraste y hover principal, `{colors.neutral}` base, descanso y contraste.
-
-> **[REVISAR] Nombre del sistema:** usé "Marca maximalista — Rojo vibrante / Morado profundo" porque tu documento no indica nombre de marca. Cámbialo en `name` si quieres.
+Principio general: mucho caracter, no mucho ruido. Composicion asimetrica con diferencias de escala, contraste cromatico, superposicion y formas graficas para generar movimiento. Base editorial (Kepler Std) + elementos expresivos (figuras, color). Resultado creativo y atrevido sin perder orden ni funcionalidad. Referencia de densidad: ~30% intensidad grafica / 70% contenido y respiracion, solo como guia visual, no medida obligatoria.
 
 ## Colors
 
-La paleta vive del contraste entre rojos intensos y lilas. Los claros dan dinamismo y frescura; los oscuros dan estabilidad y profundidad. El blanco es la pausa para que no se vuelva pesado.
+Paleta de dos familias principales que pueden funcionar independientes o complementarse. Trabajar preferentemente con un color dominante, uno secundario y un acento opcional. No usar toda la paleta a la vez.
 
-- **Lila brillante ({colors.secondary-bright} #DC8EFF):** apoyo y fondo en bloques destacados. Energía y ligereza sin competir con los principales.
-- **Lila medio ({colors.secondary} #9D50BE):** secciones secundarias, fondos y gráficos. Da continuidad entre claros y oscuros.
-- **Morado profundo ({colors.secondary-deep} #5D117D):** contraste, seguridad y elegancia. Títulos, bloques importantes, fondos de alto impacto y mayor jerarquía.
-- **Rojo vibrante ({colors.primary} #FF1E17):** principal color de acción. Llamadas de atención, botones, acentos, ilustraciones y respuesta inmediata.
-- **Rojo intenso ({colors.primary-intense} #BF0F0C):** variante contenida del rojo. Profundidad, contraste y énfasis gráfico.
-- **Rojo oscuro ({colors.primary-deep} #7F0000):** el más sobrio. Detalles, sombras, estados profundos, fuerza sin protagonismo.
-- **Blanco ({colors.neutral} #FFFFFF):** base neutral y descanso. Textos sobre fondos oscuros, áreas de lectura y equilibrio del maximalismo.
-- **Superficie ({colors.surface}):** referencia a `{colors.neutral}`. Fondo base de tarjetas, campos y enlaces.
-- **Sobre superficie ({colors.on-surface}):** referencia a `{colors.secondary-deep}`. Texto principal sobre fondos claros.
-- **Error ({colors.error}):** referencia a `{colors.primary-deep}`. Estados de error.
+- **Lila claro ({colors.purple-light}):** superficies secundarias, detalles y contrastes suaves.
+- **Morado medio ({colors.purple-medium}):** componentes, formas y jerarquia media. Estado base de bordes de inputs.
+- **Morado profundo ({colors.purple-deep}):** mayor peso del morado. Profundidad, estabilidad, jerarquia. Texto sobre fondos claros morados, foco de inputs, enlaces sobre fondos claros.
+- **Rojo vibrante ({colors.red-vibrant}):** mayor energia. Enfasis, acciones, alta atencion. Error en formularios, hover de enlaces.
+- **Rojo medio ({colors.red-medium}):** variaciones monocromaticas rojas.
+- **Rojo oscuro ({colors.red-dark}):** mayor profundidad del rojo. Marcos, peso visual, texto sobre fondos claros rojos.
+- **Blanco ({colors.white}):** descanso visual, superficie neutral y contraste frente a la intensidad. Fondo de campos.
+- **Azul claro ({colors.blue-accent}):** reservado exclusivamente para determinadas figuras graficas secundarias. Acento inesperado, nunca dominante, nunca funcional, nunca en iconos.
+
+Relaciones monocromaticas obligatorias dentro de un mismo componente: rojo + rojo o morado + morado. Tonos oscuros para estructura y marcos, claros para superficies interiores. Ejemplos: `{colors.red-dark}` -> `{colors.red-medium}` / `{colors.red-vibrant}` ; `{colors.purple-deep}` -> `{colors.purple-medium}` / `{colors.purple-light}`. El azul no sustituye a los principales ni sale de figuras secundarias.
+
+> **REVISAR:** no se definio color exacto de placeholder ni de deshabilitados. Se asume placeholder en `{colors.purple-medium}` de menor contraste y deshabilitados con contraste reducido sobre `{colors.white}`. Confirmar valores.
 
 ## Typography
 
-Dos familias con roles complementarios. Kepler Std da el carácter expresivo, editorial y elegante. Neulis Neue mantiene lectura clara, contemporánea y funcional en textos largos.
+Dos familias, sin agregar una tercera sin justificacion. La variedad se construye con tamano + peso + contraste + espacio.
 
-Para usarlas en web, añade en tu HTML:
+Cargar asi en HTML (mismo CSS para ambas):
 
 ```html
 <link rel="stylesheet" href="https://use.typekit.net/guo6nyk.css">
 ```
 
-Ese mismo enlace sirve para Kepler Std y para Neulis Neue.
+- **Kepler Std ({typography.display-kepler} / {typography.h1-kepler}):** titulos y alta jerarquia. Caracter editorial, contraste frente a lo funcional. Permite saltos grandes de escala.
+- **Neulis Neue ({typography.body}, {typography.nav}, {typography.chip}, {typography.input-text}):** cuerpo, navegacion, etiquetas, botones, info secundaria y funcional. Equilibra a Kepler con lectura clara y directa.
 
-- **Kepler Std:** principal para títulos, frases destacadas y mayor jerarquía.
-- **Kepler Std Display / Subhead:** títulos grandes y encabezados, en Semibold, Bold y Black para énfasis sin depender solo del tamaño.
-- **Kepler Std Italic:** recurso expresivo puntual para palabras clave, citas o acentos editoriales.
-- **Neulis Neue:** cuerpo y navegación. Limpia y geométrica, equilibra a Kepler.
-- **Neulis Neue Medium:** subtítulos, botones, etiquetas e interactivos con más presencia.
+Jerarquia aplicada: titulos de tarjeta en {typography.card-title}, cuerpo en {typography.card-body} con interlineado 1.4 (movil: 20px / 16px). Navegacion en {typography.nav}. Chips en {typography.chip}. Inputs en {typography.input-text} con placeholder {typography.input-placeholder}, label {typography.input-label} y ayuda {typography.input-helper}. Habilidades frontal {typography.skill-front} (30-36px, se tokeniza a 32px), reverso {typography.skill-back-title} + {typography.skill-back-body}. Educacion {typography.edu-title} + {typography.edu-institution} + {typography.edu-date} + {typography.body-sm}. Enlaces de alta jerarquia que funcionan como titulos pueden usar Kepler Std; navegacion y funcionales siempre Neulis Neue.
 
-Jerarquía (tamaño, peso y contraste, no solo tamaño):
-
-- **Display:** `{typography.display}` Kepler Std Black/Bold Display 40–48px.
-- **Título 1:** `{typography.headline-lg}` Kepler Std Bold 36–40px.
-- **Título 2:** `{typography.headline-md}` Kepler Std Semibold 28–32px.
-- **Título 3 / subsección:** `{typography.headline-sm}` Neulis Neue Medium 20–24px.
-- **Cuerpo:** `{typography.body-lg}` / `{typography.body-md}` Neulis Neue Regular 18–20px, interlineado 1.4–1.5.
-- **Botones y etiquetas:** `{typography.label-lg}` / `{typography.label-md}` Neulis Neue Medium 16–18px.
-- **Pequeño / captions:** `{typography.caption}` Neulis Neue Regular 14–16px.
-
-> **[REVISAR] Valores únicos elegidos de tus rangos:** usé display 48px, headline-lg 38px, headline-md 30px, headline-sm 22px, body 20/18px. Ajusta en `typography` si quieres otro punto del rango.
-> **[REVISAR] Pesos numéricos propuestos:** Black=900, Bold=700, Semibold=600, Medium=500, Regular=400. Tu documento solo daba nombres. Confirma que coinciden con tus archivos de Typekit.
-> **[REVISAR] Interlineados propuestos para títulos:** 1.1 / 1.15 / 1.2 / 1.3. Solo diste interlineado de cuerpo (1.4–1.5). Revisa si quieres más aire.
+> **REVISAR:** Kepler no trae tamanos px en el original. Se propuso display 72px / h1 56px como valor razonable. Ajustar a tu escala editorial real. Skill-front se promedio a 32px dentro del rango 30-36px.
 
 ## Layout
 
-Estructura flexible para composiciones dinámicas sin perder claridad. Aunque hay decoración intensa, cada sección mantiene jerarquía clara y fácil de recorrer.
+Unidad base {spacing.base}. Todo margen, padding y separacion deriva de multiplos: {spacing.xs}, {spacing.sm}, {spacing.md}, {spacing.lg}, {spacing.xl}, {spacing.2xl}, {spacing.3xl}.
 
-- **Unidad base `{spacing.base}`:** 8px. Escala principal `{spacing.xs}` 8, `{spacing.sm}` 16, `{spacing.md}` 24, `{spacing.lg}` 32, `{spacing.xl}` 48, `{spacing.2xl}` 64 y `{spacing.3xl}` 96px.
-- **Interno:** botones y pequeños 12–16px; tarjetas y bloques 16–32px según jerarquía. En tokens uso `{spacing.sm}` 16px y `{spacing.md}` 24px como base.
-- **Entre secciones:** 64–96px vertical (`{spacing.2xl}` a `{spacing.3xl}`) para pausas visuales.
-- **Retícula:** 12 columnas en escritorio para módulos asimétricos, superposiciones y composiciones editoriales sin perder alineación.
-- **Ancho máximo:** aprox. 1440px centrado; el extra es margen, no se estiran textos.
-- **Blanco estratégico:** no grandes vacíos, sino separaciones que destacan lo importante y equilibran lo ornamentado.
-- **Responsive:** móvil 320–599px 1 columna, márgenes 16px, secciones 32–48px; tableta 600–1023px 2–3 columnas, márgenes 32–48px, secciones 48–64px; escritorio 1024–1439px 12 columnas, márgenes 48–64px, secciones 64–96px; amplio 1440px+ contenido centrado 1440px. Interactivos mínimo 44×44px. En móvil la navegación se compacta y botones/enlaces/campos crecen en área táctil. Títulos Kepler reducen escala; cuerpo Neulis se mantiene 16–20px.
+Escritorio max-width 1440px, rejilla 12 columnas para composiciones asimetricas sin perder alineacion. La rejilla es control, se permiten desplazamientos y variaciones. El vacio es activo. Zonas con mucho texto llevan menor densidad grafica; transiciones y alta jerarquia admiten mas concentracion.
 
-Se pueden combinar bloques de distintos tamaños, imágenes, ilustraciones, formas y superpuestos, siempre con alineación clara. Enérgico y espontáneo, nunca desordenado.
+Hero full-width con contenido max 1440px, padding horizontal {spacing.section-h} y vertical {spacing.3xl} en escritorio. Navbar altura {spacing.nav-h}, fondo transparente o solido de paleta, composicion limpia de baja densidad para compensar zonas expresivas. Tarjetas separadas por {spacing.card-gap} a {spacing.lg}. Padding interno de tarjetas {spacing.md} a {spacing.lg}, separacion titulo-contenido {spacing.xs} a {spacing.sm}. Inputs con padding 14px 18px tokenizado a {spacing.sm} / 18px (ver Components). Labels a {spacing.xs} del campo. Textarea min-height 140px.
+
+Responsivo por recomposicion, no por escalado proporcional: escritorio con expresion completa, superposicion y agrupaciones completas; tableta reduce ~20-30% decoracion y simplifica grupos; movil a estructura vertical con solo decoracion esencial, sin scroll horizontal accidental, sin cubrir informacion, y sin poner informacion critica solo en hover. Areas tactiles minimas 44x44px (controles carousel 48x48px).
+
+> **REVISAR:** breakpoints exactos tablet/movil no definidos. Propuesta razonable: tablet <=1024px, movil <=768px. Confirmar.
 
 ## Elevation & Depth
 
-Base mayormente plana. Profundidad con sombras suaves, superposiciones y cambios de escala, tamaño, contraste, color y desplazamiento. No es realismo, es dimensión gráfica y editorial.
+La profundidad se construye con escala, superposicion, contraste, posicion, movimiento y jerarquia. Las sombras son secundarias, no el recurso principal. Tres niveles:
 
-- **Nivel plano:** tarjetas y bloques en reposo sin sombra, solo color y contraste.
-- **Sutil (hover / interactivo):** aprox. `0 2px 6px` con baja opacidad para indicar activación.
-- **Media (destacadas, menús flotantes, superpuestos):** aprox. `0 6px 16px`, bordes definidos.
-- **Alta (prioritarios, emergentes):** aprox. `0 10px 28px`, sin exagerar.
-- **Superposición:** montar gráficos para reforzar lo maximalista, sin tapar lectura.
-- **Capas oscuras:** fondo oscurecido 40–50% en modales y foco para concentrar atención.
+- **Plana:** sin sombra. Superficies estables que no necesitan separarse del fondo.
+- **Sutil:** separacion minima para interactivos o superficies que flotan levemente.
+- **Media:** mayor separacion para destacados, estados interactivos o elementos por encima de otros.
 
-> **[REVISAR] Color y opacidad de sombras propuestos:** tu documento solo da desplazamientos. Si el validador te pide color, usa `rgba(93,17,125,0.12)` para sutil, `rgba(93,17,125,0.16)` para media y `rgba(127,0,0,0.20)` para alta. Confirma si prefieres negro puro.
+Superposicion permitida si no rompe legibilidad. Figuras pueden entrar parcial desde bordes o ir detras de componentes. Interactivos prefieren escala, posicion y contraste antes que sombras. Transiciones de tarjetas 300-450ms, nav y links 200-300ms, carousel 350-500ms, flip de habilidades 500-700ms.
+
+> **REVISAR:** valores de sombra (blur/spread/color) no definidos en el original. Se dejan fuera de tokens a proposito para no inventar sistema de sombras. Si quieres sombras tokenizables, definir sm/md aqui.
 
 ## Shapes
 
-Recursos orgánicos, abstractos y fluidos para movimiento y contraste frente a la intensidad cromática. No representan figuras concretas; son acentos que suavizan y equilibran.
+Tres categorias: figuras primarias, secundarias y contenedores funcionales.
 
-- **Orgánicas:** siluetas libres, curvas amplias e irregulares: fluidez y espontaneidad.
-- **Abstractas:** manchas, ondas o trazos que acompañan sin ser protagonistas. Uso puntual en focos decorativos.
-- **Rectángulo de esquinas ampliamente redondeadas:** forma funcional principal para contenedores de texto, botones, etiquetas y bloques. Da suavidad y estabilidad. Usa `{rounded.md}` en botones e inputs, `{rounded.xl}` en bloques de texto y `{rounded.full}` en chips/badges.
-- **Contraste de formas:** el rectángulo ordena frente a marcos ornamentales y asimetrías; lo redondeado evita rigidez.
-- **Contraste visual:** suavizan el alto contraste rojo/lila/blanco.
-- **Composición:** libres acompañan o se superponen a imágenes; redondeados contienen información o interacción. En móvil se simplifican, recortan o eliminan.
+**Figuras primarias - estrellas puntiagudas irregulares.** Mayor identidad, construccion angulosa, asimetrica y explosiva, puntas de longitud y direccion variables, nada perfectamente geometrico. Uso individual, parejas, grupos pequenos, parcial fuera de limites, varias escalas y rotaciones. Menor frecuencia que las secundarias. Colores: `{colors.purple-light}`, `{colors.purple-medium}`, `{colors.purple-deep}`, `{colors.red-vibrant}`, `{colors.red-medium}`, `{colors.red-dark}`. Nunca `{colors.blue-accent}`. Assets individuales: `assets/componentes/figura_ind_1.svg`, `assets/componentes/figura_ind_2.svg`, `assets/componentes/figura_ind_3.svg` (alias `@assets/componentes/figura_ind_*.svg`). Conjunto: `assets/componentes/Figuras_principales.svg` (alias `@assets/componentes/Figuras_principales.svg`).
 
-> **[REVISAR] Radios propuestos:** `sm` 8px, `md` 16px, `lg` 24px, `xl` 32px, `full` 9999px. Tu documento dice "ampliamente redondeadas" sin número. Ajusta en `rounded` a tu gusto.
+**Figuras secundarias - ritmo.** Vocabulario: flor redondeada, asterisco 8 brazos, ovalo horizontal, ovalo inclinado, linea ondulada, 3 lineas diagonales. Geometria simple y suave. Mayor frecuencia pero en grupos intencionales de 2 a 5 elementos, distintos tamanos y orientaciones, no distribucion uniforme. Pueden usar toda la paleta incluido `{colors.blue-accent}`. El azul solo vive aqui. Assets: `assets/componentes/sec_1.svg` (flor), `assets/componentes/sec_2.svg` (asterisco), `assets/componentes/sec_3.svg` (ovalo horizontal), `assets/componentes/sec_4.svg` (ovalo inclinado), `assets/componentes/sec_5.svg` (ondulada), `assets/componentes/sec_6.svg` (3 diagonales).
+
+**Contenedores funcionales - recuadros redondeados.** Para texto, imagenes, info o interactivos. Radios: inputs {rounded.sm}, tarjetas {rounded.md}, info de proyecto {rounded.lg}, chips {rounded.full}. Regla marco oscuro -> interior claro, misma familia: `{colors.red-dark}` -> `{colors.red-medium}` / `{colors.red-vibrant}` ; `{colors.purple-deep}` -> `{colors.purple-medium}` / `{colors.purple-light}`. Jamas mezclar familias en un contenedor.
+
+> **REVISAR:** se mapeo sec_1..sec_6 a cada figura por orden probable. Confirmar que sec_1=flor, sec_2=asterisco, etc. Encontrado ademas `assets/componentes/cursor_personalizado.svg` no descrito en el documento; indicar si es parte del sistema o ignorarlo.
 
 ## Components
 
-Lógica de alto contraste, claridad funcional y acentos expresivos. La interacción se refuerza cambiando entre familia roja y morada.
+Botones con esquinas redondeadas y superficie solida. Principal en alta intensidad ({components.button-primary} sobre `{colors.red-vibrant}`), secundario baja jerarquia dentro de la misma paleta ({components.button-secondary}). Hover puede cruzar rojo<->morado ({components.button-primary-hover}). Fantasma sin superficie ({components.button-ghost}) con texto/borde/cambio cromatico. Area minima comoda 44x44px con padding interno generoso.
 
-### Botones
+Tarjetas base ({components.card}) en rojo o morado solido, radio {rounded.md}, texto Neulis Neue blanco sobre oscuro y `{colors.purple-deep}` o `{colors.red-dark}` sobre claro segun familia. Titulo {typography.card-title}, cuerpo {typography.card-body}. Hero ({components.hero}) y navbar ({components.navbar}, 72px, Neulis 18px/600) mantienen baja densidad para compensar. Links: `{colors.purple-deep}` en claro / blanco en oscuro, hover a `{colors.red-vibrant}` con shift 2px o subrayado 2px, activo con subrayado 3px, transicion 200-300ms.
 
-- **Principal `button-primary`:** fondo `{colors.primary}` #FF1E17, texto `{colors.neutral}`, `{typography.label-md}` Neulis Neue Medium.
-- **Hover `button-primary-hover`:** cambia a `{colors.secondary-deep}` #5D117D.
-- **Pressed / activo `button-primary-active`:** `{colors.primary-deep}` #7F0000 o `{colors.secondary-deep}`, con ligera reducción de escala.
-- **Secundario `button-secondary`:** fondo `{colors.secondary}` #9D50BE, texto blanco.
-- **Hover secundario `button-secondary-hover`:** `{colors.primary-intense}` #BF0F0C o `{colors.primary}`.
-- **Fantasma `button-ghost`:** sin fondo, texto `{colors.secondary-deep}` o `{colors.primary-intense}`. En hover cambia a la familia opuesta y puede subrayarse.
-- **Cursor personalizado estrella:** archivo `@assets/Componentes/cursor_personalizado.svg`. Cursor dinámico que cambia de color según fondo para mantener contraste. Sobre claros/blancos/lilas claros usa el mayor contraste entre `{colors.primary}` y `{colors.secondary-deep}`. Sobre botón rojo → `{colors.secondary-deep}`; sobre botón morado → `{colors.primary}`. Cambio inmediato en hover, misma forma/tamaño/posición. Nunca uses el mismo color dominante del elemento.
+Campos ({components.input}): fondo `{colors.white}`, borde 2px `{colors.purple-medium}`, foco a `{colors.purple-deep}` ({components.input-focus}) con halo ~3px `{colors.purple-light}` baja opacidad, error borde `{colors.red-vibrant}` ({components.input-error}) + ayuda {typography.input-helper}, label {typography.input-label} a 8px, textarea min 140px, deshabilitado sin efectos y contraste reducido.
 
-> **[REVISAR] Tamaño de cursor propuesto:** 32px (tu documento no da tamaño). Si quieres otro, dímelo y lo fijo en guía.
+Iconos ({components.icon}) simples, solidos, alto contraste, base 24px (28-32px en jerarquia alta), 44x44px minimo en controles. Colores permitidos: `{colors.red-vibrant}`, `{colors.red-medium}`, `{colors.purple-deep}`, `{colors.purple-medium}`, `{colors.white}` segun fondo. Nunca `{colors.blue-accent}`, nunca degradados ni 3D. Hover cambia rojo<->morado o escala ~1.08 en 200-300ms.
 
-### Etiquetas, chips y badges
+Chips ({components.chip}): pildora {rounded.full}, {typography.chip}, padding 8px 16px, fondos `{colors.purple-light}`, `{colors.purple-medium}`, `{colors.red-vibrant}` o `{colors.red-medium}` con texto de contraste. Mas pequenas que botones/tarjetas, informativas, sin `{colors.blue-accent}`.
 
-- **`chip-default`:** fondo `{colors.secondary-bright}` #DC8EFF, texto `{colors.secondary-deep}`.
-- **`chip-strong`:** fondo `{colors.secondary}` con texto blanco para mayor énfasis.
-- **`badge-alert`:** `{colors.primary}` para alerta/destacados.
-- **`badge-secondary`:** `{colors.primary-intense}` para secundarios.
+Avatar 320x320 escritorio / 260 tableta / 220 movil, marco de color 8-12px en cualquier principal, rotacion ~45deg del contenedor grafico sin deformar ni inclinar el retrato (compensar contenido si hace falta).
 
-### Tarjetas y contenedores
+Tarjeta proyecto: marco personalizado `assets/componentes/marco.svg` en cualquiera de los 6 principales, imagen con recorte controlado sin deformar, recuadro inferior {rounded.md} a {rounded.lg} ({components.project-card-info}, padding 24px). Marco + recuadro = una unidad. Tren horizontal con gap {spacing.card-gap} a {spacing.lg}, chevrons < > de 40-48px con hit 48x48px, scroll 350-500ms sin autoplay, hover escala 1.12-1.18 en 300-450ms como una sola unidad sin mover a las vecinas.
 
-Tarjeta de proyecto = marco gráfico personalizado que contiene solo la imagen, sin tarjeta rectangular extra. Silueta ornamental con entradas curvas laterales según `@assets/Componentes/marco.svg`. Es el elemento visual principal.
+Tarjeta habilidad `assets/componentes/habiliades_shape.svg` (respetar nombre con typo actual): marco 8px + interior, radio {rounded.md}, 280-320x360-420px. Roja: marco `{colors.red-dark}` o `{colors.red-medium}` + interior `{colors.red-medium}` o `{colors.red-vibrant}` ({components.skill-card-red}). Morada: marco `{colors.purple-deep}` + interior `{colors.purple-medium}` o `{colors.purple-light}` ({components.skill-card-purple}). Frontal solo nombre {typography.skill-front} como tarjeta fisica; reverso titulo {typography.skill-back-title} + desc {typography.skill-back-body}. Flip tipo pasar pagina de libro, eje Y lateral (transform-origin en borde), ~180deg, 500-700ms suave, sin mover vecinas.
 
-**Color del marco:** según imagen, buscando mayor contraste sin romper paleta: `{colors.primary}` #FF1E17, `{colors.primary-intense}` #BF0F0C, `{colors.primary-deep}` #7F0000, `{colors.secondary-bright}` #DC8EFF, `{colors.secondary}` #9D50BE, `{colors.secondary-deep}` #5D117D. Si foto oscura/rojiza/cálida → rojo brillante o lila claro; si clara/rosada/lila → morado profundo o rojo oscuro. Evita marco cercano al color dominante. Prioridad: contraste imagen-marco, no repetir siempre el mismo.
+Tarjeta educacion/experiencia `assets/componentes/edu_exp.svg`: mismo marco personalizado, familia roja o morada, marco fuerte `{colors.red-dark}` / `{colors.red-medium}` / `{colors.purple-deep}` + interior claro misma familia ({components.edu-card}). Totalmente estatica: sin flip, rotacion, escala, desplazamiento ni 3D. Titulo {typography.edu-title}, institucion {typography.edu-institution}, fecha {typography.edu-date}, descripcion {typography.body-sm} 1.5, padding {spacing.md} a {spacing.lg}. Zona estable del sistema.
 
-**Texto descriptivo `card-text`:** bloque independiente en rectángulo horizontal de esquinas ampliamente redondeadas (`{rounded.xl}`), debajo o próximo al marco. Zona de lectura estable frente a la forma expresiva. Usa `{spacing.md}` de acolchado.
-
-### Campos y formularios
-
-Fondo `{colors.neutral}`, estructura sencilla. `input-default` texto `{colors.on-surface}`. Focus principal borde `{colors.secondary-deep}`; focus énfasis borde `{colors.primary}`; error `input-error` texto/borde `{colors.error}` / `{colors.primary-intense}`; auxiliares o fondos secundarios `{colors.secondary-bright}`.
-
-### Navegación y enlaces
-
-`link-default` base `{colors.secondary-deep}`. En hover `link-hover` cambia a `{colors.primary}` y puede subrayarse. Activo `{colors.primary-intense}` o `{colors.secondary}` según sección.
-
-### Íconos
-
-Base `{colors.secondary-deep}` o `{colors.primary}`. En interactivos se invierte: rojo #FF1E17 → morado #5D117D, o morado #9D50BE → rojo #BF0F0C. Hace la interacción reconocible y une las dos familias.
+> **REVISAR:** boton exacto (hex primario/secundario, padding, radio) no cerrado en original; se propuso primario `{colors.red-vibrant}`, secundario `{colors.purple-medium}`, radio `{rounded.sm}`, padding 16px. Texto de chip sobre `{colors.purple-light}` debe ser `{colors.purple-deep}` por contraste, confirmar. Halo de foco 3px con opacidad exacta por definir (sugerido 40%).
 
 ## Do's and Don'ts
 
-Sí:
+Do:
 
-- Usa `{colors.primary}` y `{colors.secondary-deep}` como principales de acción y contraste.
-- Mantén el cambio rojo ↔ morado en hover e interacción.
-- Usa Kepler Std para títulos y alta jerarquía.
-- Usa Neulis Neue para cuerpo, navegación, botones y funcionales.
-- Mantén jerarquía clara con tamaño, peso, color y espaciado.
-- Retícula consistente y espacios amplios para equilibrar el maximalismo.
-- Formas orgánicas, abstractas y fluidas como acentos puntuales.
-- Blanco `{colors.neutral}` como descanso y contraste.
-- Sombras sutiles solo cuando comuniquen profundidad o interacción.
-- Permite superposiciones y asimetrías si la lectura sigue clara.
-- Botones con suficiente área y contraste.
-- Lilas `{colors.secondary-bright}` y `{colors.secondary}` para fondos, etiquetas y secundarios.
+- Manten maximalismo concentrado y controlado, con espacios amplios para equilibrar alta energia.
+- Usa estrellas como mayor jerarquia y secundarias para ritmo, en grupos de 2-5 con escalas variadas y composicion asimetrica.
+- Manten relaciones monocromaticas por componente: oscuro para estructura/marco, claro para superficie/interior.
+- Reserva `{colors.blue-accent}` solo para figuras secundarias.
+- Usa esquinas redondeadas en contenedores y genera profundidad con escala, posicion y superposicion.
+- Manten legibilidad sobre decoracion y usa movimiento como extension de jerarquia (200-700ms segun componente).
 
-No:
+Don't:
 
-- No uses rojo y morado con igual intensidad en todo; siempre con jerarquía.
-- No llenes todo de formas orgánicas o decoración.
-- No uses abstractas como fondo constante tras textos largos.
-- No conviertas maximalismo en saturación; evita muchos altos contrastes juntos.
-- No uses Kepler Std para párrafos largos o navegación.
-- No mezcles demasiados pesos en una misma sección.
-- No bajes cuerpo de 16px.
-- No comuniques estado solo con color; añade peso, borde, subrayado o escala.
-- No sombras profundas ni 3D realista.
-- No abuses de redondeadas en todo; úsalas con intención.
-- No pongas texto sobre combinaciones poco legibles.
-- No dejes que lo ornamental tape botones, navegación o contenido.
-- No agregues colores fuera de paleta sin función.
-- No dejes que la decoración mande sobre el contenido.
+- No distribuyas formas aleatoriamente, no llenes todo, no uses una sola escala ni conviertas estrellas en patron repetitivo.
+- No uses `{colors.blue-accent}` en funcionales, iconos, chips o botones.
+- No mezcles rojo y morado en un componente monocromatico ni introduzcas colores fuera de paleta.
+- No uses degradados como recurso principal ni dependas de sombras.
+- No dejes que formas tapen lectura, no uses movimiento constante que distraiga ni agregues tipografias nuevas sin justificacion.
+- No escales desktop a movil tal cual; recompón a vertical, conserva hits 44x44px y no escondas informacion solo en hover.
